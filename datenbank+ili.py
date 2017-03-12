@@ -9,7 +9,10 @@ cursor = connection.cursor()
 
 def get_sensenum_wn (lemma, ID):
     cursor.execute('SELECT sensenum, synsetid FROM words NATURAL JOIN senses WHERE lemma = ?', (lemma,))
-    return [x[0] for x in cursor.fetchall() if str(x[1]).endswith(ID)] # aus irgendeinem Grund sind die wn synset ids um eine stelle länger, als die ili synset ids. das wird hier sehr unschön abgefangen, die genaue ursache für dieses problem muss auf jeden fall geklärt werden, könnte beim vollen durchlauf zu unabsehbaren konsequenzen führen.
+    # aus irgendeinem Grund sind die wn synset ids um eine stelle länger, als die ili synset ids.
+    # das wird hier sehr unschön abgefangen, die genaue ursache für dieses problem muss auf jeden fall geklärt werden,
+    # könnte beim vollen durchlauf zu unabsehbaren konsequenzen führen.
+    return [x[0] for x in cursor.fetchall() if str(x[1]).endswith(ID)]
 
 
 def read_ili(path):
@@ -27,11 +30,22 @@ def read_ili(path):
 
 
 def create_EN_DE (ili):
-    tagDict = {'n':defaultdict(lambda : defaultdict(set)), 'v':defaultdict(lambda: defaultdict(set)), 'a':defaultdict(lambda: defaultdict(set)), 'r':defaultdict(lambda: defaultdict(set))}
+    tagDict = {
+        'n':defaultdict(lambda : defaultdict(set)),
+        'v':defaultdict(lambda: defaultdict(set)),
+        'a':defaultdict(lambda: defaultdict(set)),
+        'r':defaultdict(lambda: defaultdict(set))
+    }
     for entry in ili:
         for senseID in get_sensenum_wn(entry[1],entry[2]):
             tagDict[entry[0]][entry[1]][entry[3]].add(senseID)
-    return {k1: {k2:{k3:tagDict[k1][k2][k3] for k3 in tagDict[k1][k2]} for k2 in tagDict[k1]} for k1 in tagDict}
+    return {k1:
+                {k2:
+                     {
+                         k3:tagDict[k1][k2][k3] for k3 in tagDict[k1][k2]
+                      } for k2 in tagDict[k1]
+                 } for k1 in tagDict
+            }
 
 
 

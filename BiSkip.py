@@ -9,11 +9,11 @@ class BiSkip:
     """
     Implementation of the Bilingual Skip-Gram algorithm
     """
-    num_steps = 10001     # Number of learning iterations. Should be much larger (10-1000) than len(text)/batch_size
-    batch_size = 128      # Number of samples to learn at a time. The higher the faster
-    num_sampled = 64      # Number of negative examples to sample.
+    num_steps = 10001  # Number of learning iterations. Should be much larger (10-1000) than len(text)/batch_size
+    batch_size = 128  # Number of samples to learn at a time. The higher the faster
+    num_sampled = 64  # Number of negative examples to sample.
     embedding_size = 300  # Dimension of the embedding vector.
-    eval_k = 8            # number of nearest neighbors during inplace evaluation
+    eval_k = 8  # number of nearest neighbors during inplace evaluation
 
     @staticmethod
     def get_preferred_device():
@@ -30,7 +30,7 @@ class BiSkip:
             return local_devices[0]
         return "/cpu:0"
 
-    def __init__(self, dictionary: dict, reverse_dictionary: dict, evaluation_data: np.array=None):
+    def __init__(self, dictionary: dict, reverse_dictionary: dict, evaluation_data: np.array = None):
         """
         Initialize data and neural network
         :param dictionary: Lookup table lang1 => idx1
@@ -95,7 +95,8 @@ class BiSkip:
             # inputs are embeddings of the train words
             # with this loss we optimize weights, biases, embeddings
             self.loss = tf.reduce_mean(tf.nn.sampled_softmax_loss(softmax_weights, softmax_biases, embed,
-                                                             self.train_labels, self.num_sampled, self.vocabulary_size))
+                                                                  self.train_labels, self.num_sampled,
+                                                                  self.vocabulary_size))
 
             # Optimizer.
             # Note: The optimizer will optimize the softmax_weights AND the embeddings.
@@ -184,7 +185,7 @@ class BiSkip:
                 eval = (-sim[wIdx, :]).argsort()[1:self.eval_k + 1]
                 for predicted_idx in eval:
                     predicted_word = self.rev_dict[predicted_idx]
-                    log += " "+predicted_word
+                    log += " " + predicted_word
                 print(log)
 
     def wordvec(self, word):
@@ -222,7 +223,7 @@ class BiSkip:
         word = []
         for i in range(k):
             if was_str:
-                word.append((self.rev_dict[cos_sort[1+i]], cos[cos_sort[1+i]]))
+                word.append((self.rev_dict[cos_sort[1 + i]], cos[cos_sort[1 + i]]))
             else:
                 word.append((cos_sort[1 + i], cos[cos_sort[1 + i]]))
         return word
@@ -247,4 +248,3 @@ class BiSkip:
             cos[i] = cosine(contexts, self.trained_embeddings[i, :])
         cos = cos.argsort()
         return self.rev_dict[cos[1]]
-

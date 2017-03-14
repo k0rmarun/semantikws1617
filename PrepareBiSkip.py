@@ -1,5 +1,8 @@
 import numpy as np
 
+__author__ = "Niels Bernlöhr"
+__license__ = "GPL"
+__version__ = "0.0.9"
 
 def prepare_biskip(text_splitter):
     """

@@ -4,6 +4,9 @@ import tensorflow as tf
 from tensorflow.python.client import device_lib
 from scipy.spatial.distance import cosine
 
+__author__ = "Niels Bernlöhr"
+__license__ = "GPL"
+__version__ = "0.0.9"
 
 class BiSkip:
     """

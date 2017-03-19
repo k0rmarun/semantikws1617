@@ -172,10 +172,11 @@ def MetaGIZA(metafile: str):
                 links = []
                 active = False
 
+from array import array
 
 def post_GIZA_from(line: str):
     line = line.split()
-    return list(zip(line, range(1, 1 + len(line))))
+    return tuple(zip(line, range(1, 1 + len(line))))
 
 
 def post_GIZA_to(line: str):
@@ -221,28 +222,36 @@ def post_GIZA_to(line: str):
                 # print(out_data)
     return tuple(zip(map(lambda x: " ".join(x), out_data.values()), out_data.keys()))
 
-
+from pympler import asizeof
 def post_GIZA():
     line_type = None  # 0=comment, 1=from, 2=to
     out_from = []
     out_to = []
+    lidx = 0
     line = ""
     with open(tempdir+"result") as f:
         while True:  # Parse GIZA result file *A3* using a simple state machine
             line = f.readline()
             if not line:
                 break
+            lidx += 1
+            if lidx % 1000000 == 0:
+                print(lidx, asizeof.asized(out_from))
+            # if lidx % 1000000 == 0:
+            #     print(lidx)
+            #     break
+            # if lidx > 100000:
+            #     break
             line = line.strip()
             if line.startswith("#"):  # Comment line, ignore + reset state machine
                 line_type = 0
             elif line_type is 0:  # Line from FROM language. Is always in order
-                out_from = post_GIZA_from(line)
+                out_from.append(post_GIZA_from(line))
                 line_type = 1
             elif line_type is 1:  # Line from TO language. Is aligned in respect to FROM language
-                out_to = post_GIZA_to(line)
-                yield out_from, out_to
+                out_to.append(post_GIZA_to(line))
                 line_type = 2
-    return
+    return out_from, out_to
 
 if __name__ == "__main__":
     if not os.path.exists(tempdir+"result"):
@@ -250,14 +259,9 @@ if __name__ == "__main__":
         MetaGIZA(corpus_path+"de-en.xml.gz")
         exec("giza pipeline", giza_skript)
     else:
-        it = post_GIZA()
-
-        i = 0
-        for f, t in it:
-            i += 1
-            # if len(f) is not len(t):
-                # print("mismatch in line {}, length {} != {}".format(i, len(f), len(t)))
-        #         print(f[i])
-        #         print(t[i])
-            if i % 1000000 == 0:
-                print(i)
+        f, t = post_GIZA()
+        for i in range(len(f)):
+            if len(f[i]) is not len(t[i]):
+                print("mismatch in line {}, length {} != {}".format(i, len(f[i]), len(t[i])))
+                print(f[i])
+                print(t[i])

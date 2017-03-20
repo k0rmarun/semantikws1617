@@ -9,17 +9,16 @@ import gzip
 import subprocess
 from pprint import pprint
 
-
 corpus_name = "EUbookshop"
-corpus_path = "/home/niels/Downloads/"+corpus_name+"/xml/"
+corpus_path = "/home/niels/Downloads/" + corpus_name + "/xml/"
 corpus_en = corpus_path + "en/"
 corpus_de = corpus_path + "de/"
-outpath = "/media/windows2/"+corpus_name+"/result/"
+outpath = "/media/windows2/" + corpus_name + "/result/"
 tempdir = "/media/windows2/tmp/"
 giza_skript = "/home/niels/PycharmProjects/semantikws1617/GIZA.sh"
 
 
-def prepareSentence(sentence)->str:
+def prepareSentence(sentence) -> str:
     # get best name
     def mapper(elem):
         return elem.text
@@ -29,10 +28,11 @@ def prepareSentence(sentence)->str:
         if len(elem) is 1 and elem in ",.;:-_#'+*~!^°\"§$%&/()=?`{[]}\\¸<>|":
             return False
         return True
-    return " ".join(list(filter(filt, map(mapper, sentence.findall(".//w")))))+"."
+
+    return " ".join(list(filter(filt, map(mapper, sentence.findall(".//w"))))) + "."
 
 
-def readGZIPXML(filename: str)->dict:
+def readGZIPXML(filename: str) -> dict:
     with gzip.open(filename) as f:
         content = f.read()
     root = ET.fromstring(content)
@@ -53,7 +53,7 @@ def exec(name: str, arg: str):
 
 
 def clean_GIZA():
-    exec("cleanup giza", "rm -rf "+tempdir+"/*")
+    exec("cleanup giza", "rm -rf " + tempdir + "/*")
 
 
 def GIZA(fromDoc: str, toDoc: str, links: list):
@@ -79,18 +79,18 @@ def GIZA(fromDoc: str, toDoc: str, links: list):
     except ET.ParseError as err:
         print("Caught Exeption", err)
     else:
-        with open(tempdir+"from", "a") as f:
+        with open(tempdir + "from", "a") as f:
             f.write("\r\n".join(from_prep))
-        with open(tempdir+"to", "a") as f:
+        with open(tempdir + "to", "a") as f:
             f.write("\r\n".join(to_prep))
 
 
-def format_time(delta: int)->str:
+def format_time(delta: int) -> str:
     h = delta // 3600
-    delta -= (h*3600)
+    delta -= (h * 3600)
 
     m = delta // 60
-    s = delta - m*60
+    s = delta - m * 60
     return "{}:{}:{}".format(int(h), int(m), int(s))
 
 
@@ -104,7 +104,7 @@ def MetaGIZA(metafile: str):
 
     data = []
 
-    def parse_target(elem)->tuple:
+    def parse_target(elem) -> tuple:
         elems = elem.split(";")
         return elems[0].split(" "), elems[1].split(" ")
 
@@ -125,12 +125,13 @@ def MetaGIZA(metafile: str):
         active = False
         for line in f:
             i += 1
-            #if i > 10000:
+            # if i > 10000:
             #    break
             if i % 1000 == 0:
-                perc = i/num_lines
-                delta = time.time()-start_time
-                print("Completed {}% in {}. ETA: {}".format(int(perc*100), format_time(delta), format_time(delta*(1/perc))))
+                perc = i / num_lines
+                delta = time.time() - start_time
+                print("Completed {}% in {}. ETA: {}".format(int(perc * 100), format_time(delta),
+                                                            format_time(delta * (1 / perc))))
 
             line = line.decode("utf-8")
             match = grpRegex.search(line)
@@ -172,92 +173,7 @@ def MetaGIZA(metafile: str):
                 links = []
                 active = False
 
-
-def post_GIZA_from(line: str):
-    line = line.split()
-    return list(zip(line, range(1, 1 + len(line))))
-
-
-def post_GIZA_to(line: str):
-    line = line.split()
-    out_data = {}
-    inner_line_type = 2  # 0=word, 1=opened positions brackets, 2=closed positions brackets
-    last_idx = -1
-    last_word = ""
-    cur_idx = -1
-    ignore = False
-    for word in line:
-        word = word.strip()
-        if word == "NULL":
-            ignore = True
-            continue
-        if ignore:
-            if word == "})":
-                ignore = False
-                inner_line_type = 2
-            continue
-
-        if inner_line_type is 2:
-            last_word = word
-            inner_line_type = 0
-        elif inner_line_type is 0 and word == "({":
-            inner_line_type = 1
-            cur_idx = -1
-        elif inner_line_type is 1:
-            if word == "})":
-                inner_line_type = 2
-                if cur_idx is -1:
-                    if (last_idx + 1) not in out_data.keys():
-                        out_data[last_idx + 1] = []
-                    out_data[last_idx + 1].append(last_word)
-                    last_idx += 1
-                else:
-                    last_idx = cur_idx
-            else:
-                cur_idx = int(word)
-                if cur_idx not in out_data.keys():
-                    out_data[cur_idx] = []
-                out_data[cur_idx].append(last_word)
-                # print(out_data)
-    return tuple(zip(map(lambda x: " ".join(x), out_data.values()), out_data.keys()))
-
-
-def post_GIZA():
-    line_type = None  # 0=comment, 1=from, 2=to
-    out_from = []
-    out_to = []
-    line = ""
-    with open(tempdir+"result") as f:
-        while True:  # Parse GIZA result file *A3* using a simple state machine
-            line = f.readline()
-            if not line:
-                break
-            line = line.strip()
-            if line.startswith("#"):  # Comment line, ignore + reset state machine
-                line_type = 0
-            elif line_type is 0:  # Line from FROM language. Is always in order
-                out_from = post_GIZA_from(line)
-                line_type = 1
-            elif line_type is 1:  # Line from TO language. Is aligned in respect to FROM language
-                out_to = post_GIZA_to(line)
-                yield out_from, out_to
-                line_type = 2
-    return
-
 if __name__ == "__main__":
-    if not os.path.exists(tempdir+"result"):
-        clean_GIZA()
-        MetaGIZA(corpus_path+"de-en.xml.gz")
-        exec("giza pipeline", giza_skript)
-    else:
-        it = post_GIZA()
-
-        i = 0
-        for f, t in it:
-            i += 1
-            # if len(f) is not len(t):
-                # print("mismatch in line {}, length {} != {}".format(i, len(f), len(t)))
-        #         print(f[i])
-        #         print(t[i])
-            if i % 1000000 == 0:
-                print(i)
+    clean_GIZA()
+    MetaGIZA(corpus_path + "de-en.xml.gz")
+    exec("giza pipeline", giza_skript)

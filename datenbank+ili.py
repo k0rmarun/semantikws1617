@@ -1,55 +1,58 @@
+from sqlite3 import connect
 from collections import defaultdict
+from os import listdir
 from re import compile, search, findall, DOTALL
-import sqlite3
+#cursor.execute("PRAGMA table_info(words);")
+#cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
 
-connection = sqlite3.connect("sqlite-30.db")
-cursor = connection.cursor()
+def wordnet_to_dict (path):
+    connection = connect(path)
+    cursor = connection.cursor()
+    cursor.execute('SELECT synsetid, sensenum, lemma FROM words NATURAL JOIN senses')
+    return {(str(synsetid)[1:], lemma):sense for synsetid, sense, lemma in cursor.fetchall()}
+
+def germanet_to_dict (directory):
+    paths = [directory + path for path in listdir(directory) if 'nomen' in path or 'verben' in path or 'adj' in path]
+    germanet = {}
+    for path in paths:
+        words = findall('<lexUnit.+?id="(.+?)".+?>.+?<orthForm>(.+?)</orthForm>.+?</lexUnit>', open(path).read(), DOTALL)
+        for word in words:
+            germanet[word[0]] = word[1].lower()
+    return germanet
 
 
-# cursor.execute("PRAGMA table_info(words);")
-# cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-
-
-def get_sensenum_wn(lemma, ID):
-    cursor.execute('SELECT sensenum, synsetid FROM words NATURAL JOIN senses WHERE lemma = ?', (lemma,))
-    # aus irgendeinem Grund sind die wn synset ids um eine stelle länger, als die ili synset ids.
-    # das wird hier sehr unschön abgefangen, die genaue ursache für dieses problem muss auf jeden fall geklärt werden,
-    # könnte beim vollen durchlauf zu unabsehbaren konsequenzen führen.
-    return [x[0] for x in cursor.fetchall() if str(x[1]).endswith(ID)]
-
-
-def read_ili(path):
+def ili_to_list(path):
     corpus = open(path).read()
     ili = []
     lemmaRegex = compile('pwnWord="(.+?)"')
     wordnetRegex = compile('pwn30Id="ENG30-(.+?)-(.)"')
-    germanetRegex = compile('lexUnitId="l(.+?)"')
+    germanetRegex = compile('lexUnitId="(.+?)"')
     for entry in findall('<iliRecord .*?>.*?</iliRecord>', corpus, DOTALL):
-        lemma = search(lemmaRegex, entry).group(1)
+        lemma = search(lemmaRegex, entry).group(1).lower().replace('_', ' ').strip(' ')
         wordnet = search(wordnetRegex, entry)
         germanet = search(germanetRegex, entry).group(1)
-        ili.append((wordnet.group(2), lemma, wordnet.group(1), germanet))
-    return ili[:10]  # später begrenzung entfernen
+        ili.append((wordnet.group(2), lemma, germanet, wordnet.group(1)))
+    return ili
 
 
-def create_EN_DE(ili):
-    tagDict = {
-        'n': defaultdict(lambda: defaultdict(set)),
-        'v': defaultdict(lambda: defaultdict(set)),
-        'a': defaultdict(lambda: defaultdict(set)),
-        'r': defaultdict(lambda: defaultdict(set))
-    }
+def create_EN_DE (ili, wordnet, germanet):
+    tagDict = {'n':defaultdict(set), 'v':defaultdict(set), 'a':defaultdict(set), 'r':defaultdict(set)}
     for entry in ili:
-        for senseID in get_sensenum_wn(entry[1], entry[2]):
-            tagDict[entry[0]][entry[1]][entry[3]].add(senseID)
-    return {k1:
-                {k2:
-                     {
-                         k3: tagDict[k1][k2][k3] for k3 in tagDict[k1][k2]
-                         } for k2 in tagDict[k1]
-                 } for k1 in tagDict
-            }
+        try:
+            if entry[0] in tagDict and entry[1] in tagDict[entry[0]] and germanet[entry[2]] in tagDict[entry[0]][entry[1]]:
+                print('error')
+            tagDict[entry[0]][(entry[1], germanet[entry[2]])].add(wordnet[(entry[3], entry[1])])
+        except KeyError:
+            pass
+    return {k1:{k2:tagDict[k1][k2].pop() for k2 in tagDict[k1] if len(tagDict[k1][k2]) == 1} for k1 in tagDict}
+
 
 
 if __name__ == '__main__':
-    print(create_EN_DE(read_ili('interLingualIndex_DE-EN_GN110.xml')))
+    ili = ili_to_list('interLingualIndex_DE-EN_GN110.xml')
+    wordnet = wordnet_to_dict("sqlite-30.db")
+    germanet = germanet_to_dict ('/home/julian/Dropbox/Kurse/Semantik/project/germanet-11.0/GN_V110_XML/')
+    dictio = create_EN_DE(ili, wordnet, germanet)
+    print('Einträge in ili:', len(ili))
+    print('Einträge mit nur einem möglichen sense tag:', sum([len(dictio[key]) for key in dictio]))
+    print('Davon unterschiedliche englische lemmata:', len({k2[0] for k1 in dictio for k2 in dictio[k1]}))

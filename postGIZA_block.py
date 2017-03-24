@@ -63,6 +63,8 @@ def post_GIZA():
             if not line:
                 break
             lidx += 1
+            if lidx > 10:
+                break
             if lidx % 100000 == 0:
                 print(lidx / 10000000 * 100, "%")
             # if lidx % 1000000 == 0:

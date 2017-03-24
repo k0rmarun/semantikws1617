@@ -186,7 +186,10 @@ class SkipGram:
         """
         for sentence in self.__corpus:
             for word in sentence:
-                typ, lemma, sid = word
+                if isinstance(word, str):
+                    typ, lemma, sid = "Unk", word, -1
+                else:
+                    typ, lemma, sid = word
                 self.__corpus_size += 1
                 if lemma not in self.__lemma2sense:
                     self.__lemma2sense[lemma] = []

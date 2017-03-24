@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-tempdir = "/media/windows2/tmp/"
+tempdir = "/home/niels/Desktop/"
 
 
 def post_GIZA_from(line: str):
@@ -56,8 +56,12 @@ def post_GIZA():
     out_from = []
     out_to = []
     line = ""
+    lidx = 0
     with open(tempdir + "result") as f:
         while True:  # Parse GIZA result file *A3* using a simple state machine
+            lidx += 1
+            #if lidx > 1000:
+            #    break
             line = f.readline()
             if not line:
                 break
@@ -79,6 +83,8 @@ if __name__ == "__main__":
 
     i = 0
     for f, t in it:
+        print(f,t)
+        sys.exit()
         i += 1
         # if len(f) is not len(t):
         # print("mismatch in line {}, length {} != {}".format(i, len(f), len(t)))

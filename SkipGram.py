@@ -3,10 +3,12 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.python.client import device_lib
 from scipy.spatial.distance import cosine
+import json
 
 __licence__ = "GPLv3"
 __author__ = "Niels Bernlöhr (kormarun)"
 __attributions__ = ["Thushan Ganegedaras"]
+
 
 class SkipGramTF:
     """
@@ -15,7 +17,7 @@ class SkipGramTF:
     num_steps = 10001  # Number of learning iterations. Should be much larger (10-1000) than len(text)/batch_size
     batch_size = 20  # Number of samples to learn at a time. The higher the faster
     embedding_size = 300  # Dimension of the embedding vector.
-    num_sampled = 64      # Number of negative examples to sample.
+    num_sampled = 64  # Number of negative examples to sample.
 
     @staticmethod
     def get_preferred_device():
@@ -32,32 +34,35 @@ class SkipGramTF:
             return local_devices[0]
         return "/cpu:0"
 
-    def __init__(self, vocabulary_size: int, corpus_size: int = None):
+    def __init__(self, vocabulary_size: int, corpus_size: int = None, load: bool = False):
         """
         Initialize data and neural network
         :param vocabulary_size: number of words in vocabulary
         :type vocabulary_size: int
         """
-        if corpus_size:
-            self.num_steps = 10*corpus_size//self.batch_size
-        self.device = self.get_preferred_device()
-        print("using device", self.device)
+        if not load:
+            if corpus_size:
+                self.num_steps = 10 * corpus_size // self.batch_size
+            self.device = self.get_preferred_device()
+            print("using device", self.device)
 
-        self.generate_batch = None
-        self.showLoss = True
+            self.generate_batch = None
+            self.showLoss = True
 
-        self.vocabulary_size = vocabulary_size
-        self.trained_embeddings = None
+            self.vocabulary_size = vocabulary_size
+            self.trained_embeddings = None
 
-        self.graph = tf.Graph()
-        self.train_dataset = None
-        self.train_labels = None
-        self.embeddings = None
-        self.loss = None
-        self.average_loss = None
-        self.optimizer = None
-        self.normalized_embeddings = None
-        self.setupNN()
+            self.graph = tf.Graph()
+            self.train_dataset = None
+            self.train_labels = None
+            self.embeddings = None
+            self.loss = None
+            self.average_loss = None
+            self.optimizer = None
+            self.normalized_embeddings = None
+            self.setupNN()
+        else:
+            self.load()
 
     def setupNN(self):
         """
@@ -171,6 +176,12 @@ class SkipGramTF:
         """
         return self.trained_embeddings[word, :]
 
+    def save(self):
+        np.save("./embeddings.npy", self.trained_embeddings)
+
+    def load(self):
+        self.trained_embeddings = np.load("./embeddings.npy")
+
 
 class SkipGram:
     """
@@ -239,7 +250,7 @@ class SkipGram:
                             yield batch, labels
                             batchidx = 0
 
-    def __init__(self, corpus):
+    def __init__(self, corpus, load=False):
         """
         Translate and train Skip-Gram algorithm
         :param corpus: corpus to use in training
@@ -250,9 +261,27 @@ class SkipGram:
         self.__sensedict = {}
         self.__inv_sensedict = {}
         self.__corpus_size = 0
-        self.__prepare()
-        self.__sg = SkipGramTF(self.__corpus_size)
-        self.__sg.train(self.__batch)
+        if load:
+            self.load()
+        else:
+            self.__prepare()
+            self.__sg = SkipGramTF(self.__corpus_size)
+            self.__sg.train(self.__batch)
+
+    def save(self):
+        with open("lemma2sense.json") as f:
+            json.dump(self.__lemma2sense, f)
+        with open("sensedict.json") as f:
+            json.dump(self.__sensedict, f)
+        self.__sg.save()
+
+    def load(self):
+        with open("lemma2sense.json") as f:
+            self.__lemma2sense = json.load(f)
+        with open("sensedict.json") as f:
+            self.__sensedict = json.load(f)
+        self.__inv_sensedict = dict(zip(self.__sensedict.values(), self.__sensedict.keys()))
+        self.__sg = SkipGramTF(self.__corpus_size, load=True)
 
     def choose(self, context, choices: list):
         """
@@ -282,10 +311,11 @@ class SkipGram:
                 choice = choices[i]
 
                 choice_vector = self.__sg.word2vec(self.__sensedict[choice])
-                cosines[i] = 1-cosine(context_vectors, choice_vector)
+                cosines[i] = 1 - cosine(context_vectors, choice_vector)
             return choices[cosines.argmax()]
         except KeyError:
             return None
+
 
 if __name__ == "__main__":
     import collections
@@ -299,6 +329,7 @@ if __name__ == "__main__":
     from six.moves.urllib.request import urlretrieve
 
     url = 'http://mattmahoney.net/dc/'
+
 
     def maybe_download(filename, expected_bytes):
         """Download a file if not present, and make sure it's the right size."""
@@ -314,7 +345,9 @@ if __name__ == "__main__":
                 'Failed to verify ' + filename + '. Can you get to it with a browser?')
         return filename
 
+
     filename = maybe_download('text8.zip', 31344016)
+
 
     def read_data(filename):
         """Extract the first file enclosed in a zip file as a list of words"""
@@ -322,8 +355,10 @@ if __name__ == "__main__":
             data = tf.compat.as_str(f.read(f.namelist()[0])).split()
         return data
 
+
     words = read_data(filename)
     print('Data size %d' % len(words))
+
 
     def make_sentenced(words):
         i = 0
@@ -338,6 +373,8 @@ if __name__ == "__main__":
                 i = 0
                 sentence += 1
         return sentences
+
+
     data = make_sentenced(words)
 
     sg = SkipGram(data)

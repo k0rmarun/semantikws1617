@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-tempdir = "/home/niels/Desktop/"
+tempdir = "/media/windows2/tmp/"
 
 
 def post_GIZA_from(line: str):
@@ -60,6 +60,8 @@ def post_GIZA():
     with open(tempdir + "result") as f:
         while True:  # Parse GIZA result file *A3* using a simple state machine
             lidx += 1
+            if lidx % 1000000 == 0:
+                print(lidx)
             #if lidx > 10000:
                 #break
             line = f.readline()

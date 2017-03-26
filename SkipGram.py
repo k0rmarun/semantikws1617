@@ -8,13 +8,12 @@ __licence__ = "GPLv3"
 __author__ = "Niels Bernlöhr (kormarun)"
 __attributions__ = ["Thushan Ganegedaras"]
 
-
 class SkipGramTF:
     """
     Implementation of the Skip-Gram algorithm using TensorFlow
     """
     num_steps = 10001  # Number of learning iterations. Should be much larger (10-1000) than len(text)/batch_size
-    batch_size = 128  # Number of samples to learn at a time. The higher the faster
+    batch_size = 20  # Number of samples to learn at a time. The higher the faster
     embedding_size = 300  # Dimension of the embedding vector.
     num_sampled = 64      # Number of negative examples to sample.
 
@@ -184,7 +183,8 @@ class SkipGram:
         """
         Translate sense tagged corpus data into internal representation used in the Skip-Gram algorithm
         """
-        for sentence in self.__corpus:
+        it = self.__corpus()
+        for sentence in it:
             for word in sentence:
                 if isinstance(word, str):
                     typ, lemma, sid = "Unk", word, -1
@@ -213,15 +213,22 @@ class SkipGram:
         # How many elements in batch. Yield and reset at :batch_size
         batchidx = 0
         while True:
-            for sentence in self.__corpus:
+            it = self.__corpus()
+            for sentence in it:
                 l = len(sentence)
                 for i in range(l):
-                    forw_word = self.__sensedict[sentence[i]]
+                    try:
+                        forw_word = self.__sensedict[sentence[i]]
+                    except KeyError:
+                        continue
                     # Get words left/right inside sentence, skip where idx1 = idx2
                     for j in range(max(0, i - window), min(l, i + window + 1)):
                         if i == j:
                             continue
-                        back_word = self.__sensedict[sentence[j]]
+                        try:
+                            back_word = self.__sensedict[sentence[j]]
+                        except KeyError:
+                            continue
 
                         batch[batchidx] = forw_word
                         labels[batchidx, 0] = back_word
@@ -232,11 +239,11 @@ class SkipGram:
                             yield batch, labels
                             batchidx = 0
 
-    def __init__(self, corpus: list):
+    def __init__(self, corpus):
         """
         Translate and train Skip-Gram algorithm
         :param corpus: corpus to use in training
-        :type corpus: List[List[(type, lemma, senseID)]]
+        :type corpus: Function -> Generator->List[List[(type, lemma, senseID)]]
         """
         self.__corpus = corpus
         self.__lemma2sense = {}
@@ -244,15 +251,15 @@ class SkipGram:
         self.__inv_sensedict = {}
         self.__corpus_size = 0
         self.__prepare()
-        self.__sg = SkipGramTF(len(self.__sensedict))
+        self.__sg = SkipGramTF(self.__corpus_size)
         self.__sg.train(self.__batch)
 
-    def choose(self, context: list, choices: list):
+    def choose(self, context, choices: list):
         """
         Choose the best fitting choice in the given context
         Selects the sense from choices that has the highest similarity to the mean context vector
         :param context: Untagged context lemmas
-        :type context: List[Str]
+        :type context: Function -> Generator
         :param choices: Sense tagged choices
         :type choices: List[(type, lemma, senseID)]
         :return: Best choice

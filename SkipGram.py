@@ -4,6 +4,8 @@ import tensorflow as tf
 from tensorflow.python.client import device_lib
 from scipy.spatial.distance import cosine
 import json
+from memory_profiler import profile
+
 
 __licence__ = "GPLv3"
 __author__ = "Niels Bernlöhr (kormarun)"
@@ -30,8 +32,8 @@ class SkipGramTF:
         local_devices = device_lib.list_local_devices()
         local_devices = [x.name for x in local_devices if x.device_type == 'GPU']
 
-        if len(local_devices) > 0:
-            return local_devices[0]
+        #if len(local_devices) > 0:
+            #return local_devices[0]
         return "/cpu:0"
 
     def __init__(self, vocabulary_size: int, corpus_size: int = None, load: bool = False):
@@ -91,8 +93,9 @@ class SkipGramTF:
             # Compute the softmax loss, using a sample of the negative labels each time.
             # inputs are embeddings of the train words
             # with this loss we optimize weights, biases, embeddings
-            self.loss = tf.reduce_mean(tf.nn.sampled_softmax_loss(softmax_weights, softmax_biases, embed,
-                                                                  self.train_labels, self.num_sampled,
+            self.loss = tf.reduce_mean(tf.nn.sampled_softmax_loss(softmax_weights, softmax_biases,
+                                                                  self.train_labels, embed,
+                                                                  self.num_sampled,
                                                                   self.vocabulary_size))
 
             # Optimizer.
@@ -106,6 +109,7 @@ class SkipGramTF:
             norm = tf.sqrt(tf.reduce_sum(tf.square(self.embeddings), 1, keep_dims=True))
             self.normalized_embeddings = self.embeddings / norm
 
+    #@profile
     def train(self, generate_batch):
         """
         Train neural network on data yielded from generate batch
@@ -122,7 +126,8 @@ class SkipGramTF:
         config = tf.ConfigProto(allow_soft_placement=True)
 
         with tf.Session(graph=self.graph, config=config) as session:  # bind session as default
-            tf.initialize_all_variables().run()
+            tf.global_variables_initializer().run()
+            session.graph.finalize()
             print('Starting training')
 
             self.average_loss = 0
@@ -182,7 +187,6 @@ class SkipGramTF:
     def load(self):
         self.trained_embeddings = np.load("./embeddings.npy")
 
-
 class SkipGram:
     """
     Simple wrapper for Skip-Gram algorithm
@@ -204,7 +208,8 @@ class SkipGram:
                 self.__corpus_size += 1
                 if lemma not in self.__lemma2sense:
                     self.__lemma2sense[lemma] = []
-                self.__lemma2sense[lemma].append(word)
+                if word not in self.__lemma2sense[lemma]:
+                    self.__lemma2sense[lemma].append(word)
                 if word not in self.__sensedict:
                     self.__sensedict[word] = len(self.__sensedict)
         self.__inv_sensedict = dict(zip(self.__sensedict.values(), self.__sensedict.keys()))
@@ -250,6 +255,7 @@ class SkipGram:
                             yield batch, labels
                             batchidx = 0
 
+    #@profile
     def __init__(self, corpus, load=False):
         """
         Translate and train Skip-Gram algorithm
@@ -265,7 +271,7 @@ class SkipGram:
             self.load()
         else:
             self.__prepare()
-            self.__sg = SkipGramTF(self.__corpus_size)
+            self.__sg = SkipGramTF(len(self.__sensedict), self.__corpus_size)
             self.__sg.train(self.__batch)
 
     def save(self):

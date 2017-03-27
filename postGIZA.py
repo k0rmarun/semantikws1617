@@ -52,7 +52,7 @@ def post_GIZA_to(line: str):
 
 
 def post_GIZA():
-    line_type = None  # 0=comment, 1=from, 2=to
+    line_type = None  # 0=cfomment, 1=from, 2=to
     out_from = []
     out_to = []
     line = ""
@@ -62,6 +62,7 @@ def post_GIZA():
             lidx += 1
             if lidx % 1000000 == 0:
                 print(lidx)
+                break
             #if lidx > 10000:
                 #break
             line = f.readline()

@@ -10,11 +10,11 @@ import subprocess
 from pprint import pprint
 
 corpus_name = "EUbookshop"
-corpus_path = "/home/niels/Downloads/" + corpus_name + "/xml/"
+corpus_path = "/home/niels/tmp/corpus/"#""/home/niels/Downloads/" + corpus_name + "/xml/"
 corpus_en = corpus_path + "en/"
 corpus_de = corpus_path + "de/"
-outpath = "/media/windows2/" + corpus_name + "/result/"
-tempdir = "/media/windows2/tmp/"
+outpath = "/home/niels/tmp/result/"#"/media/windows2/" + corpus_name + "/result/"
+tempdir = "/home/niels/tmp/result/"#/media/windows2/tmp/"
 giza_skript = "/home/niels/PycharmProjects/semantikws1617/GIZA.sh"
 
 

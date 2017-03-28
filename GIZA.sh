@@ -4,7 +4,7 @@ plain2snt_binary="/home/niels/Downloads/mgiza/mgizapp/build/inst/bin/plain2snt"
 mkcls_binary="/home/niels/Downloads/mgiza/mgizapp/build/inst/bin/mkcls"
 snt2cooc_binary="/home/niels/Downloads/mgiza/mgizapp/build/inst/bin/snt2cooc"
 giza_binary="/home/niels/Downloads/mgiza/mgizapp/build/inst/bin/mgiza"
-tempdir="/media/windows2/tmp/"
+tempdir="/home/niels/tmp/result/"
 
 cd $tempdir
 

@@ -289,21 +289,24 @@ class SkipGram:
         self.__inv_sensedict = dict(zip(self.__sensedict.values(), self.__sensedict.keys()))
         self.__sg = SkipGramTF(self.__corpus_size, load=True)
 
-    def choose(self, context, choices: list):
+    def choose(self, context, choice: str):
         """
         Choose the best fitting choice in the given context
         Selects the sense from choices that has the highest similarity to the mean context vector
         :param context: Untagged context lemmas
         :type context: Function -> Generator
-        :param choices: Sense tagged choices
-        :type choices: List[(type, lemma, senseID)]
+        :param choice: Sense tagged choices
+        :type choice: List[(type, lemma, senseID)]
         :return: Best choice
         :rtype: Union{None, (type, lemma, senseID)}
         """
+
         try:
             context_vectors = np.zeros(self.__sg.embedding_size)
             context_cnt = 0
             for word in context:
+                if word not in context:
+                    continue
                 senses = self.__lemma2sense[word]
                 for sense in senses:
                     context_vectors += self.__sg.word2vec(
@@ -312,11 +315,14 @@ class SkipGram:
                     context_cnt += 1
             context_vectors /= context_cnt  # calculate mean
 
+            if choice not in self.__lemma2sense:
+                return None
+            choices = self.__lemma2sense[choice]
+
             cosines = np.zeros(len(choices))
             for i in range(len(choices)):
-                choice = choices[i]
-
-                choice_vector = self.__sg.word2vec(self.__sensedict[choice])
+                choice_ = choices[i]
+                choice_vector = self.__sg.word2vec(self.__sensedict[choice_])
                 cosines[i] = 1 - cosine(context_vectors, choice_vector)
             return choices[cosines.argmax()]
         except KeyError:
@@ -386,15 +392,9 @@ if __name__ == "__main__":
     sg = SkipGram(data)
     print("best: ", sg.choose(
         ["one", "two", "three"],
-        [
-            (1, "bank", 1),
-            (1, "six", 1),
-        ]
+        "six"
     ))
     print("best: ", sg.choose(
         ["one", "two", "three"],
-        [
-            (1, "bank", 1),
-            (1, "eight", 1),
-        ]
+        "bank"
     ))

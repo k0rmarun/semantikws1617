@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-tempdir = "/media/windows2/tmp/"
+tempdir = "/home/niels/Desktop/"
 
 
 def post_GIZA_from(line: str):
@@ -62,9 +62,8 @@ def post_GIZA():
             lidx += 1
             if lidx % 1000 == 0:
                 print(lidx)
+            if lidx > 10000:
                 break
-            #if lidx > 10000:
-                #break
             line = f.readline()
             if not line:
                 break

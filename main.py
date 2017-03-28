@@ -32,10 +32,12 @@ def main():
         print("Got {} words. Tagged {} ({}%)".format(total_words, tagged_words, tagged_words / total_words))
 
     SkipGram(make_corpus)
-    #test_de, test_en = get_test_data()
-    #for s_idx in range(len(test_en)):
-    #    sentence_en = test_en[s_idx]
-    #    sentence_de = test_de[s_idx]
+
+test_de, test_en = get_test_data()
+for s_idx in range(len(test_en)):
+    sentence_en = test_en[s_idx]
+    sentence_de = test_de[s_idx]
+
 
 if __name__ == "__main__":
     main()

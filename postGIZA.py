@@ -60,7 +60,7 @@ def post_GIZA():
     with open(tempdir + "result") as f:
         while True:  # Parse GIZA result file *A3* using a simple state machine
             lidx += 1
-            if lidx % 1000000 == 0:
+            if lidx % 1000 == 0:
                 print(lidx)
                 break
             #if lidx > 10000:

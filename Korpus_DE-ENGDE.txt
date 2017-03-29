@@ -1,75 +1,73 @@
-[[['Desertion', 'Desertion', 'NOUN', 1, 6], ['war', 'sein', 'VERB', 1, 4], ['in', '', '', 0, 0],['der', '', '', 0,1], ['mexikanischen', 'mexikanisch', 'ADJ', 1, 2], ['Armee', 'Armee', 'NOUN', 2, 3], ['weit', 'weit', 'ADJ', 2, 4], ['verbreitet', 'verbreiten', 'VERB', 4, 4]]]
+[[['Innerhalb', '', '', 0,1], ['von', '', '', 0,1], ['Wochen', 'woche', 'NOUN', 1, 2], ['brachte', 'mitbringen', 'VERB', 1, 4], ['er', '', '', 0, 3], ['vier', '', '', 1, 5], ['weitere', '', '', 0,6],['Leutnants', 'leutnant', 'NOUN', 1, 7], ['mit', 'mitbringen', 'VERB', 1, 4]]]
 
-[[['innerhalb', '', '', 0,1], ['von', '', '', 0,1], ['Wochen', 'Woche', 'NOUN', 1, 2], ['brachte', 'mitbringen', 'VERB', 1, 4], ['er', '', '', 0, 3], ['vier', 'Menge', 'NOUN', 1, 5], ['weitere', '', '', 0,6],['Leutnants', 'Leutnant', 'NOUN', 1, 7], ['mit', 'mitbringen', 'VERB', 1, 4]]]
+[[['Sie', '', '', 0,1],['brachten', 'mitbringen', 'VERB', 1, 2], ['wertvolle', 'wertvoll', 'ADJ', 1, 5], ['Waren', 'ware', 'NOUN', 1, 6], ['mit', 'mitbringen', 'VERB', 1, 2]]]
 
-[[['Sie', '', '', 0,1],['brachten', 'mitbringen', 'VERB', 1, 2], ['wertvolle', 'wertvoll', 'ADJ', 1, 5], ['Waren', 'Ware', 'NOUN', 1, 6], ['mit', 'mitbringen', 'VERB', 1, 2]]]
+[[['Seine', '', '', 0,1],['Bedingungen', 'bedingung', 'NOUN', 1, 2], ['waren', 'sein', 'VERB', 1, 3], ['großzügig', 'großzügig', 'ADJ', 2, 4]]]
 
-[[['Seine', '', '', 0,1],['Bedingungen', 'Bedingung', 'NOUN', 1, 2], ['waren', 'sein', 'VERB', 1, 3], ['großzügig', 'großzügig', 'ADJ', 2, 4]]]
+[[['Jetzt', '', '', 0,1],['er', '', '', 0,2], ['war', 'sein', 'VERB', 1, 3], ['auf','', '', 0,4], ['dem', '', '', 0,5], ['Weg','weg', 'Noun', 0,6],['ein', '', '',0, 9], ['reicher', 'reich', 'ADJ', 2, 10], ['Mann', 'mann', 'NOUN', 2, 11], ['zu', '', '',0, 7], ['werden', '', '',2,8]]]
 
-[[['Jetzt', '', '', 0,1],['er', '', '', 0,2], ['war', 'sein', 'VERB', 1, 3], ['auf','', '', 0,4], ['dem', '', '', 0,5], ['Weg','', '', 0,6],['ein', '', '',0, 9], ['reicher', 'reich', 'ADJ', 2, 10], ['Mann', 'Mann', 'NOUN', 2, 11], ['zu', '', '',0, 7], ['werden', '', '',2,8]]]
-
-[[['Die', '', '', 0,1], ['Arbeit', 'Arbeit', 'NOUN', 4, 2], ['selbst', 'selbst', '', '', 1, 3], ['war', 'sein', 'VERB', 1, 4], ['relativ', 'relativ', 'ADJ', 2, 5], ['einfach', 'einfach', 'ADJ', 2, 6]]]
+[[['Die', '', '', 0,1], ['Arbeit', 'arbeit', 'NOUN', 4, 2], ['selbst', 'selbst', '', '', 1, 3], ['war', 'sein', 'VERB', 1, 4], ['relativ', 'relativ', 'ADJ', 2, 5], ['einfach', 'einfach', 'ADJ', 2, 6]]]
 
 [[['Die', '', '', 0,1], ['meisten', '', '', 0,1], ['bezahlten', 'bezahlen', 'VERB', 3, 2], ['bereitwillig', 'bereitwillig', 'ADJ', 1, 3]]]
 
-[[['Er', '', '', 0,1], ['befahl', 'befehlen', 'VERB', 1, 2], ['ihm', '', '', 0,3], ['einen', '', '', 0,6],['rivalisierenden', 'rivalisierend', '', '', 0,7], ['Schleuser', 'Schleuser', 'NOUN', 1, 8], ['zu', 'beseitigen', 'VERB', 1, 4], ['beseitigen', 'beseitigen','VERB', 1, 5]]]
+[[['Er', '', '', 0,1], ['befahl', 'befehlen', 'VERB', 1, 2], ['ihm', '', '', 0,3], ['einen', '', '', 0,6],['rivalisierenden', 'rivalisierend', '', '', 0,7], ['Schleuser', 'schleuser', 'NOUN', 1, 8], ['zu', 'beseitigen', 'VERB', 1, 4], ['beseitigen', 'beseitigen','VERB', 1, 5]]]
 
-[[['jetzt', '', '', 0,1], ['sind', 'werden', 'VERB', 2, 3], ['sie', '', '', 0,2], ['weit','', '', 0,5], ['mehr', '', '', 0,6], ['als', '', '', 0,7], ['Leibwächter', 'Leibwächter', 'NOUN', 1, 8], ['geworden', 'werden', 'VERB',2, 4]]]
+[[['Jetzt', '', '', 0,1], ['sind', 'werden', 'VERB', 2, 3], ['sie', '', '', 0,2], ['weit','', '', 0,5], ['mehr', '', '', 0,6], ['als', '', '', 0,7], ['Leibwächter', 'leibwächter', 'NOUN', 1, 8], ['geworden', 'werden', 'VERB',2, 4]]]
 
-[[['Die', '', '', 0,1], ['Kultur', 'Kultur', 'NOUN', 1, 2], ['ist', 'sein', 'VERB', 1, 3], ['die', '', '', 0,4], ['einer', '', '', 0,4,5,6], ['Eliteeinheit', 'Eliteeinheit', 'NOUN',1, 7,8]]]
+[[['Die', '', '', 0,1], ['Kultur', 'kultur', 'NOUN', 1, 2], ['ist', 'sein', 'VERB', 1, 3], ['die', '', '', 0,4], ['einer', '', '', 0,4,5,6], ['Eliteeinheit', 'eliteeinheit', 'NOUN',1, 7,8]]]
 
-[[['Aber', '', '', 0,1], ['um', '', '', 0,2], ['wirklich', 'wirklich', 'ADJ', 2, 4], ['berühmt', 'berühmt', 'ADJ', 1, 5], ['zu', 'sein', 'VERB', 1, 3], ['sein', 'sein', 'VERB', 1, 3], ['braucht', 'brauchen', 'VERB', 4, 8], ['eine', '', '', 0,6], ['Gruppe', 'Gruppe', 'NOUN', 1, 7], ['einen', '', '', 0,9], ['Namen', 'Name', 'NOUN', 1, 10]]]
+[[['Aber', '', '', 0,1], ['um', '', '', 0,2], ['wirklich', 'wirklich', 'ADJ', 2, 4], ['berühmt', 'berühmt', 'ADJ', 1, 5], ['zu', 'sein', 'VERB', 1, 3], ['sein', 'sein', 'VERB', 1, 3], ['braucht', 'brauchen', 'VERB', 4, 8], ['eine', '', '', 0,6], ['Gruppe', 'gruppe', 'NOUN', 1, 7], ['einen', '', '', 0,9], ['Namen', 'name', 'NOUN', 1, 10]]]
 
-[[['Es', '', '', 0,1], ['wurde', 'werden', 'VERB', 1, 2], ['eine', '', '', 0,3], ['Hierarchie', 'Hierarchie', 'NOUN', 1, 4], ['des', '', '', 0,5], ['Dienstalters', 'Dienstalter', 'NOUN', 1, 6]]]
+[[['Es', '', '', 0,1], ['wurde', 'werden', 'VERB', 1, 2], ['eine', '', '', 0,3], ['Hierarchie', 'hierarchie', 'NOUN', 1, 4], ['des', '', '', 0,5], ['Dienstalters', 'dienstalter', 'NOUN', 1, 6]]]
 
-[[['Der', '', '', 0,1] ,['Gottesdienst', 'Gottesdienst', 'NOUN', 1, 2], ['geht', 'gehen', 'VERB', 18, 3], ['zu', '', '', 0,4, 5],['Ende', 'Ende','NOUN', 3, 6]]]
+[[['Der', '', '', 0,1] ,['Gottesdienst', 'gottesdienst', 'NOUN', 1, 2], ['geht', 'gehen', 'VERB', 18, 3], ['zu', '', '', 0,4, 5],['Ende', 'ende','NOUN', 3, 6]]]
 
-[[['Die', '', '', 0,1],['Teilnehmer', 'Teilnehmer', 'NOUN', 1, 2], ['beginnen', 'beginnen','VERB', 3, 3], ['aus', '', '', 0,7],['der', '', '', 0,8],['Kirche', 'Kirche', 'NOUN',2, 9], ['herauszumarschieren', 'marschieren', 'VERB', 1, 5,6]]]
+[[['Die', '', '', 0,1],['Teilnehmer', 'teilnehmer', 'NOUN', 1, 2], ['beginnen', 'beginnen','VERB', 3, 3], ['aus', '', '', 0,7],['der', '', '', 0,8],['Kirche', 'kirche', 'NOUN',2, 9], ['herauszumarschieren', 'marschieren', 'VERB', 1, 5,6]]]
 
-[[['Die', '', '', 0,1],['beiden', 'beide', 'ADJ', 1, 2], ['Männer', 'Mann', 'NOUN', 2, 3], ['sind', 'sein', 'VERB', 1, 4], ['Freunde', 'Freund', 'NOUN', 2, 5]]]
+[[['Die', '', '', 0,1],['beiden', '', '', 0, 2], ['Männer', 'mann', 'NOUN', 2, 3], ['sind', 'sein', 'VERB', 1, 4], ['Freunde', 'freund', 'NOUN', 2, 5]]]
 
 [[['Er', '', '', 0,1],['wuchs', 'aufwachsen','VERB', 3, 2], ['arm', 'arm', 'ADJ', 2, 4], ['auf', 'aufwachsen','VERB', 3, 3]]]
 
-[[['Ein', '', '', 0,1],['Mann', 'Mann', 'NOUN', 2, 2], ['kann', 'können','VERB', 1, 3], ['in', '', '', 0,5],['der', '', '', 0,6],['Armee', 'Armee','NOUN', 2, 7], ['aufsteigen', 'aufsteigen','VERB', 2, 4]]]
+[[['Ein', '', '', 0,1],['Mann', 'mann', 'NOUN', 2, 2], ['kann', 'können','VERB', 1, 3], ['in', '', '', 0,5],['der', '', '', 0,6],['Armee', 'armee','NOUN', 2, 7], ['aufsteigen', 'aufsteigen','VERB', 2, 4]]]
 
-[[['Er', '', '', 0,1],['mochte', 'mögen', 'VERB', 4, 2], ['Die', '', '', 0,3],['brutale', 'brutal','ADJ', 1, 4], ['Ausbildung', 'Ausbildung', 'NOUN',2, 5]]]
+[[['Er', '', '', 0,1],['mochte', 'mögen', 'VERB', 4, 2], ['die', '', '', 0,3],['brutale', 'brutal','ADJ', 1, 4], ['Ausbildung', 'ausbildung', 'NOUN',2, 5]]]
 
-[[['Er', '', '', 0,1],['hört', 'hören', 'VERB', 6, 2, 3], ['die', '', '', 0,4],['Schritte', 'Schritt', 'NOUN', 5, 5], ['die', '', '', 0,6,7],['die', '', '', 0,8],['Treppe', 'Treppe','NOUN', 1, 9], ['hinauf', '', '', 0,6], ['kommen', 'kommen', 'VERB', 15, 6]]]
+[[['Er', '', '', 0,1],['hört', 'hören', 'VERB', 6, 2, 3], ['die', '', '', 0,4],['Schritte', 'schritt', 'NOUN', 5, 5], ['die', '', '', 0,6,7],['die', '', '', 0,8],['Treppe', 'treppe','NOUN', 1, 9], ['hinauf', '', '', 0,6], ['kommen', 'kommen', 'VERB', 15, 6]]]
 
-[[['Er', '', '', 0,1],['hatte', 'haben','VERB', 9, 2], ['einen', '', '', 0,3],['Burger', 'Hamburger','NOUN', 1, 4], ['und', '', '', 0,5],['Pommes', 'Pommes frites','NOUN', 1, 6]]]
+[[['Er', '', '', 0,1],['hatte', 'haben','VERB', 9, 2], ['einen', '', '', 0,3],['Burger', 'burger','NOUN', 1, 4], ['und', '', '', 0,5],['Pommes', 'pommes','NOUN', 1, 6]]]
 
-[[['nach', '', '', 0,1], ['einer', '', '', 0,2], ['Weile', 'Weile', 'NOUN', 1, 3], ['werden', 'werden','VERB', 1, 6], ['Motelzimmer', 'Motelzimmer','NOUN', 1, 4,5], ['wie', '', '', 0,7],['Gefängniszellen', 'Gefängniszelle','NOUN', 1, 8,9]]]
+[[['Nach', '', '', 0,1], ['einer', '', '', 0,2], ['Weile', 'weile', 'NOUN', 1, 3], ['werden', 'werden','VERB', 1, 6], ['Motelzimmer', 'motelzimmer','NOUN', 1, 4,5], ['wie', '', '', 0,7],['Gefängniszellen', 'gefängniszelle','NOUN', 1, 8,9]]]
 
-[[['Beide', 'beide', 'NOUN', 1, 1], ['trugen', 'tragen','VERB', 6, 2,3], ['billige', 'billig', 'ADJ', 4, 4], ['Revolver', 'Revolver','NOUN', 1, 5]]]
+[[['Beide', 'beide', 'NOUN', 1, 1], ['trugen', 'tragen','VERB', 6, 2,3], ['billige', 'billig', 'ADJ', 4, 4], ['Revolver', 'revolver','NOUN', 1, 5]]]
 
-[[['Vielleicht', '', '', 0, 1], ['sind', 'sein','VERB',  1, 3], ['sie', '', '', 0,2],['nur', '', '', 0,4],['Räuber', 'Räuber','NOUN', 2, 5]]]
+[[['Vielleicht', '', '', 0, 1], ['sind', 'sein','VERB',  1, 3], ['sie', '', '', 0,2],['nur', '', '', 0,4],['Räuber', 'räuber','NOUN', 2, 5]]]
 
-[[['Laternen', 'Laterne', 'NOUN', 1, 1], ['hängen', 'hängen', 'VERB', 3, 2], ['von', '', '', 0,3],['der', '', '', 0,4],['Decke', 'Decke', 'NOUN', 3, 5]]]
+[[['Laternen', 'laterne', 'NOUN', 1, 1], ['hängen', 'hängen', 'VERB', 3, 2], ['von', '', '', 0,3],['der', '', '', 0,4],['Decke', 'decke', 'NOUN', 3, 5]]]
 
-[[['Ich', '', '', 0,1],['sollte', 'sollen', 'VERB', 2, 2], ['nicht', '', '', 0,3],['Volleyball', 'Volleyball', 'NOUN', 1, 5], ['spielen', 'spielen', 'VERB', 5, 4]]]
+[[['Ich', '', '', 0,1],['sollte', 'sollen', 'VERB', 2, 2], ['nicht', '', '', 0,3],['Volleyball', 'volleyball', 'NOUN', 1, 5], ['spielen', 'spielen', 'VERB', 5, 4]]]
 
-[[['Der', '', '', 0,1],['Beamte', 'Beamter', 'NOUN', 1, 3], ['der', '', '', 0,0], ['Regierung', 'Regierung', 'NOUN', 1, 2],['ist', 'da sein','VERB', 1, 4], ['schon', '', '', 0,5],['da', 'da sein','VERB', 1, 4,6]]]
+[[['Der', '', '', 0,1],['Beamte', 'beamter', 'NOUN', 1, 3], ['der', '', '', 0,0], ['Regierung', 'regierung', 'NOUN', 1, 2],['ist', 'sein','VERB', 1, 4], ['schon', '', '', 0,5],['da', 'sein','VERB', 1, 4,6]]]
 
-[[['eine', '', '', 0,1],['Erinnerung', 'Erinnerung', 'NOUN', 3, 2], ['die', '', '', 0,0],['er', '', '', 0,3],['ihr', '', '', 0,6],['verdankt', 'verdanken', 'VERB', 2, 4]]]
+[[['Eine', '', '', 0,1],['Erinnerung', 'erinnerung', 'NOUN', 3, 2], ['die', '', '', 0,0],['er', '', '', 0,3],['ihr', '', '', 0,6],['verdankt', 'verdanken', 'VERB', 2, 4]]]
 
 [[['Er', '', '', 0,1],['hat', 'verlassen','VERB', 1, 2], ['sie', '', '', 0,3],['verlassen', 'verlassen','VERB', 1, 2]]]
 
-[[['Sie', '', '', 0,1],['gingen', 'gehen','VERB', 13, 2],['durch', '', '', 0,4],['die', '', '', 0,5], ['Wüste', 'Wüste','NOUN', 1, 6]]]
+[[['Sie', '', '', 0,1],['gingen', 'gehen','VERB', 13, 2],['durch', '', '', 0,4],['die', '', '', 0,5], ['Wüste', 'wüste','NOUN', 1, 6]]]
 
-[[['Diese', '', '', 0,1],['Straße', 'Straße','NOUN', 3, 2], ['führt', 'führen','VERB', 11, 3], ['zum', '', '', 0, 4],['See', 'See','NOUN', 2, 6]]]
+[[['Diese', '', '', 0,1],['Straße', 'straße','NOUN', 3, 2], ['führt', 'führen','VERB', 11, 3], ['zum', '', '', 0, 4],['See', 'see','NOUN', 2, 6]]]
 
-[[['Vor', '', '', 0,1,2,3],['dem', '', '', 0,4],['König', 'König','NOUN', 2, 5], ['muss', 'müssen','VERB', 2, 7], ['sich', '', '', 0,0],['alle', '', '', 0,6],['verbeugen', 'verbeugen', 'VERB', 1,8 ]]]
+[[['Vor', '', '', 0,1,2,3],['dem', '', '', 0,4],['König', 'könig','NOUN', 2, 5], ['muss', 'müssen','VERB', 2, 7], ['sich', '', '', 0,0],['alle', '', '', 0,6],['verbeugen', 'verbeugen', 'VERB', 1,8 ]]]
 
-[[['Es', '', '', 0,1],['war', 'sein', 'VERB', 1, 2], ['ein', '', '', 0,3], ['Holzbogen', 'Bogen','NOUN', 5, 4,5]]]
+[[['Es', '', '', 0,1],['war', 'sein', 'VERB', 1, 2], ['ein', '', '', 0,3], ['Holzbogen', 'holzbogen','NOUN', 5, 4,5]]]
 
-[[['Bitte', '', '', 0,1],['in', '', '', 0,3],['einer', '', '', 0,4],['Reihe', 'Reihe', 'NOUN', 4, 5], ['stehen', 'stehen', 'VERB', 10, 2]]]
+[[['Bitte', '', '', 0,1],['in', '', '', 0,3],['einer', '', '', 0,4],['Reihe', 'reihe', 'NOUN', 4, 5], ['stehen', 'stehen', 'VERB', 10, 2]]]
 
-[[['Meine', '', '', 0,1],['Nachbarn', 'Nachbar', 'NOUN', 1, 2], ['hatten', 'haben','VERB', 2, 3], ['gestern', '', '', 0,6],['einen', '', '', 0,4],['Streit', 'Streit', 'NOUN', 1, 5]]]
+[[['Meine', '', '', 0,1],['Nachbarn', 'nachbar', 'NOUN', 1, 2], ['hatten', 'haben','VERB', 2, 3], ['gestern', '', '', 0,6],['einen', '', '', 0,4],['Streit', 'streit', 'NOUN', 1, 5]]]
 
-[[['Sie', '', '', 0,1],['reißt', 'auseinanderreißen', 'VERB', 1, 2], ['den', '', '', 0,3],['Brief', 'Brief', 'NOUN', 1, 4], ['auseinander', 'auseinanderreißen', 'VERB', 1, 5]]]
+[[['Sie', '', '', 0,1],['reißt', 'auseinanderreißen', 'VERB', 1, 2], ['den', '', '', 0,3],['Brief', 'brief', 'NOUN', 1, 4], ['auseinander', 'auseinanderreißen', 'VERB', 1, 5]]]
 
-[[['Sie', '', '', 0,1],['hat', 'haben','VERB', 8, 2], ['Tränen', 'Träne','NOUN', 1, 3],['in', '', '', 0,4],['ihren', '', '', 0,5], ['Augen', 'Auge', 'NOUN', 4, 6]]]
+[[['Sie', '', '', 0,1],['hat', 'haben','VERB', 8, 2], ['Tränen', 'träne','NOUN', 1, 3],['in', '', '', 0,4],['ihren', '', '', 0,5], ['Augen', 'auge', 'NOUN', 4, 6]]]
 
-[[['Der', '', '', 0,1],['Uhrmacher', 'Uhrmacher', 'NOUN', 1, 2], ['zieht', 'aufziehen','VERB', 10, 3], ['die', '', '', 0,4],['Uhr', 'Uhr','NOUN', 1, 5], ['auf', 'aufziehen', 'VERB', 10, 3]]]
+[[['Der', '', '', 0,1],['Uhrmacher', 'uhrmacher', 'NOUN', 1, 2], ['zieht', 'aufziehen','VERB', 10, 3], ['die', '', '', 0,4],['Uhr', 'uhr','NOUN', 1, 5], ['auf', 'aufziehen', 'VERB', 10, 3]]]
 
-[[['Der', '', '', 0,1],['Wind', 'Wind', 'NOUN', 3, 2], ['war', 'sein','VERB', 1, 3], ['kalt', 'kalt','ADJ', 5, 4]]]
+[[['Der', '', '', 0,1],['Wind', 'wind', 'NOUN', 3, 2], ['war', 'sein','VERB', 1, 3], ['kalt', 'kalt','ADJ', 5, 4]]]

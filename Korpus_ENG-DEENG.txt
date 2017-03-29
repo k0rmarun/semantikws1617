@@ -1,72 +1,70 @@
-[[['the', '', '', 0, 4],['mexican', 'mexican', 'ADJ', 1, 5],['army', 'army', 'NOUN', 1, 6],['was', 'be', 'VERB', 2, 2],['rife', 'prevailing', '', 1, 8],['desertion', 'abandonment', 'NOUN', 1, 1],['anyway', 'anyhow', '', 2, 0]]]
+[[['within', '', '', 0, 1], ['weeks', 'week', 'NOUN', 1, 3], ['he', '', '', 0, 5],['brought', 'bring', 'VERB', 1, 4,9], ['four', 'four', 'NOUN', 1, 6], ['other', 'other', 'ADJ', 1,7],['lieutenants', 'lieutenant', 'NOUN', 1, 8]]]
 
-[[['within', 'inside', '', 2, 1], ['weeks', 'week', 'NOUN', 1, 3], ['he', '', '', 0, 5],['brought', 'bring', 'VERB', 1, 4,9], ['four', 'four', 'NOUN', 1, 6], ['other', 'other', 'ADJ', 1,7],['lieutenants', 'lieutenant', 'NOUN', 1, 8]]]
+[[['they', '', '', 0, 1], ['brought', 'bring', 'VERB', 1, 2], ['with', '', '',0, 2], ['them', '', '', 0, 0], ['valuable', 'valuable', 'NOUN', 1, 3], ['merchandise', 'merchandise', 'NOUN', 1, 4]]]
 
-[[['they', '', '', 0, 1], ['brought', 'bring', 'VERB', 1, 2], ['with', '', '',0, 2], ['them', '', '', 0, 0], ['valuable', 'valuable', 'NOUN', 1, 3], ['merchandise', 'product', 'NOUN', 1, 4]]]
+[[['his', '', '', 0, 1],['terms', 'term', 'NOUN', 7, 2], ['were', 'be', 'VERB', 2, 3], ['generous', 'generous', 'ADJ', 3, 4]]]
 
-[[['his', '', '', 0, 1],['terms', 'term', 'NOUN', 7, 2], ['were', 'be', 'VERB', 2, 3], ['generous', 'generous', '', 3, 4]]]
+[[['now', 'now', 'NOUN', 1, 0],['he', '', '', 0, 1], ['was', 'be', 'VERB', 2, 2], ['on', '', '', 0, 3], ['his', '', '', 0, 0], ['way', 'way', 'NOUN', 1, 5], ['to', '', '', 0, 9], ['becoming', 'become', 'VERB', 1, 10], ['a', '', '', 0, 6], ['rich', 'rich', 'ADJ', 1, 7], ['man', 'man', 'NOUN', 1, 8]]]
 
-[[['now', 'now', 'NOUN', 1, 0],['he', '', '', 0, 1], ['was', 'be', 'VERB', 2, 2], ['on', 'on', '', 1, 3], ['his', '', '', 0, 0], ['way', 'way', 'NOUN', 1, 5], ['to', '', '', 0, 9], ['becoming', 'become', 'VERB', 1, 10], ['a', '', '', 0, 6], ['rich', 'rich', 'ADJ', 1, 7], ['man', 'man', 'NOUN', 1, 8]]]
-
-[[['the', '', '', 0, 1], ['work', 'work', 'NOUN', 1, 2], ['itself', '', '', 0, 3], ['was', 'be', 'VERB', 2, 4], ['relatively', 'relatively', '', 1, 5], ['easy', 'easy', 'ADJ', 1, 6]]] 
+[[['the', '', '', 0, 1], ['work', 'work', 'NOUN', 1, 2], ['itself', '', '', 0, 3], ['was', 'be', 'VERB', 2, 4], ['relatively', '', '', 0, 5], ['easy', 'easy', 'ADJ', 1, 6]]] 
   
-[[['most', 'most', 'ADJ', 1, 1,2], ['paid', 'pay', 'VERB', 1, 3], ['willingly', 'willingly', '', 1, 4]]]
+[[['most', 'most', 'ADJ', 1, 1,2], ['paid', 'pay', 'VERB', 1, 3], ['willingly', '', '', 0, 4]]]
 
-[[['he', '', '', 0, 1], ['ordered', 'order', 'VERB', 1, 2], ['him', '', '', 0, 3], ['to', '', '', 0, 7], ['eliminate', 'eliminate', 'VERB', 3, 8], ['a', '', '', 0, 4], ['rival', 'rival', 'NOUN', 1, 5],['trafficker', 'seller', 'NOUN', 1, 6]]]
+[[['he', '', '', 0, 1], ['ordered', 'order', 'VERB', 1, 2], ['him', '', '', 0, 3], ['to', '', '', 0, 7], ['eliminate', 'eliminate', 'VERB', 3, 8], ['a', '', '', 0, 4], ['rival', 'rival', 'NOUN', 1, 5],['trafficker', 'trafficker', 'NOUN', 1, 6]]]
 
 [[['now', 'now', 'NOUN', 1, 1],['they', '', '', 0, 3], ['have', 'have', 'VERB', 1, 2], ['become', 'become', 'VERB', 1, 7], ['far', 'far', 'ADJ', 1, 4], ['more', 'more', 'ADJ', 1, 5], ['than', '', '', 0, 5], ['bodyguards', 'bodyguard', 'NOUN', 1, 6]]]
 
-[[['the', '', '', 0, 1], ['culture', 'culture', 'NOUN', 2, 2], ['is', 'be', 'VERB', 2, 3], ['that' , '', '', 0, 4], ['of', '', '', 0, 5], ['an', '', '', 0, 5], ['elite', 'elect', '', 1, 6], ['force', 'force', 'NOUN', 4, 6]]]
+[[['the', '', '', 0, 1], ['culture', 'culture', 'NOUN', 2, 2], ['is', 'be', 'VERB', 2, 3], ['that' , '', '', 0, 4], ['of', '', '', 0, 5], ['an', '', '', 0, 5], ['elite', 'elite', 'ADJ', 1, 6], ['force', 'force', 'NOUN', 4, 6]]]
 
-[[['but', 'but', '', 1, 1], ['to', '', '', 0, 2], ['be', 'be', 'VERB', 2, 6], ['truly', 'truly', '', 1, 4], ['famous', 'famous', '', 1, 3], ['a', '', '', 0, 8], ['group', 'group', 'NOUN', 1, 9], ['needs', 'need', 'VERB', 3, 7], ['a','', '', 0, 10], ['name', 'name', 'NOUN', 1, 11]]]
+[[['but', '', '', 0, 1], ['to', '', '', 0, 2], ['be', 'be', 'VERB', 2, 6], ['truly', '', '', 0, 4], ['famous', 'famous', 'ADJ', 1, 3], ['a', '', '', 0, 8], ['group', 'group', 'NOUN', 1, 9], ['needs', 'need', 'VERB', 3, 7], ['a','', '', 0, 10], ['name', 'name', 'NOUN', 1, 11]]]
 
 [[['it', '', '', 0, 1], ['became', 'become', 'VERB', 1, 2], ['a', '', '', 0, 3], ['hierarchy', 'hierarchy', 'NOUN', 2, 4], ['of', '', '', 0, 5], ['seniority', 'seniority', 'NOUN', 1, 6]]]
 
 [[['the', '', '', 0, 1], ['service', 'service', 'NOUN', 3, 2], ['comes', 'come', 'VERB', 4, 3], ['to','', '', 0, 4], ['an', '', '', 0, 0], ['end', 'end', 'NOUN', 2, 6]]]
 
-[[['the', '', '', 0,1], ['participants', 'participant', 'NOUN', 1, 2], ['start', 'begin', 'VERB', 3, 3], ['to', '', '', 0, 7], ['file', 'file', 'VERB', 3, 7], ['out', 'out', '', 4, 7], ['of', '', '', 0, 4], ['the', '', '', 0, 5], ['church', 'church', 'NOUN', 1, 6]]]
+[[['the', '', '', 0,1], ['participants', 'participant', 'NOUN', 1, 2], ['start', 'start', 'VERB', 3, 3], ['to', '', '', 0, 7], ['file', 'file', 'VERB', 3, 7], ['out', '', '', 0, 7], ['of', '', '', 0, 4], ['the', '', '', 0, 5], ['church', 'church', 'NOUN', 1, 6]]]
 
-[[['the', '', '', 0, 1], ['two', 'two', 'NOUN', 1, 2], ['men', 'man', 'NOUN', 1, 3], ['are', 'be', 'VERB', 2, 4], ['friends', 'friend', 'NOUN', 1, 5]]]
+[[['the', '', '', 0, 1], ['two', '', '', 1, 2], ['men', 'man', 'NOUN', 1, 3], ['are', 'be', 'VERB', 2, 4], ['friends', 'friend', 'NOUN', 1, 5]]]
 
 [[['he', '', '', 0, 1], ['grew', 'grow', 'VERB', 2, 2], ['up', 'up', '', 1, 4], ['poor', 'poor', 'ADJ', 2, 3]]]
 
-[[['a', '', '', 0, 1], ['man', 'man', 'NOUN', 1, 2], ['could', '', '', 0, 3],['rise', 'rise', 'NOUN', 1, 7], ['in', 'in', '', 2, 4], ['the', '', '', 0, 5], ['army', 'army', 'NOUN', 1, 6]]]
+[[['a', '', '', 0, 1], ['man', 'man', 'NOUN', 1, 2], ['could', '', '', 0, 3],['rise', 'rise', 'NOUN', 1, 7], ['in', '', '', 0, 4], ['the', '', '', 0, 5], ['army', 'army', 'NOUN', 1, 6]]]
 
-[[['he', '', '', 0,1], ['liked', 'like', 'VERB', 1, 2] ,['the', '', '', 0, 3], ['brutal', 'barbarous', '', 1, 4], ['training', 'training', 'NOUN', 1, 5]]]
+[[['he', '', '', 0,1], ['liked', 'like', 'VERB', 1, 2] ,['the', '', '', 0, 3], ['brutal', 'brutal', 'ADJ', 1, 4], ['training', 'training', 'NOUN', 1, 5]]]
 
-[[['he', '', '', 0, 1], ['listens', 'listen', 'VERB', 1, 2], ['to','', '', 0, 0], ['the','', '', 0, 3], ['footsteps', 'footstep', 'NOUN', 2, 4], ['coming', 'come', 'VERB', 1, 7,8], ['up', 'up', '', 1, 7,8], ['the', '', '', 0, 5], ['stairs', 'stairs', 'NOUN', 1, 6]]]
+[[['he', '', '', 0, 1], ['listens', 'listen', 'VERB', 1, 2], ['to','', '', 0, 0], ['the','', '', 0, 3], ['footsteps', 'footstep', 'NOUN', 2, 4], ['coming', 'come', 'VERB', 1, 7,8], ['up', '', '', 1, 7,8], ['the', '', '', 0, 5], ['stairs', 'stairs', 'NOUN', 1, 6]]]
 
-[[['he', '', '', 0, 1], ['had', 'have', 'VERB', 1, 2], ['a', '', '', 0, 3], ['burger', 'hamburger', 'NOUN', 1, 4], ['and', '', '', 0, 5], ['fries', 'french_fries', 'NOUN', 1, 6]]]
+[[['he', '', '', 0, 1], ['had', 'have', 'VERB', 1, 2], ['a', '', '', 0, 3], ['burger', 'burger', 'NOUN', 1, 4], ['and', '', '', 0, 5], ['fries', 'fries', 'NOUN', 1, 6]]]
 
-[[['after', 'subsequently', '', 1, 1], ['a', '', '', 0,2], ['while', 'while', 'NOUN', 1, 3], ['motel', 'motel', 'NOUN', 1, 5], ['rooms', 'room', 'NOUN', 1, 5], ['become', 'become', 'VERB', 1, 4], ['like', 'like', 'ADJ', 1, 6], ['prison', 'prison', 'NOUN', 1, 7], ['cells', 'cell', 'NOUN', 7, 7]]]
+[[['after', '', '', 0, 1], ['a', '', '', 0,2], ['while', 'while', 'NOUN', 1, 3], ['motel', 'motel', 'NOUN', 1, 5], ['rooms', 'room', 'NOUN', 1, 5], ['become', 'become', 'VERB', 1, 4], ['like', 'like', 'ADJ', 1, 6], ['prison', 'prison', 'NOUN', 1, 7], ['cells', 'cell', 'NOUN', 7, 7]]]
 
-[[['both', 'both', '', 1, 1], ['were', 'be', 'VERB', 2, 2], ['carrying', 'carry', 'VERB', 2, 2], ['cheap', 'cheap', 'ADJ', 1, 3], ['revolvers', 'revolver', 'NOUN', 1, 4]]]
+[[['both', 'both', 'ADJ', 1, 1], ['were', 'be', 'VERB', 2, 2], ['carrying', 'carry', 'VERB', 2, 2], ['cheap', 'cheap', 'ADJ', 1, 3], ['revolvers', 'revolver', 'NOUN', 1, 4]]]
 
-[[['maybe', 'possibly', '', 1, 1], ['they', '', '', 0, 3], ['are', 'be', 'VERB', 2, 2], ['just', 'merely', '', 1, 4], ['robbers', 'robber', 'NOUN', 1, 5]]]
+[[['maybe', '', '', 0, 1], ['they', '', '', 0, 3], ['are', 'be', 'VERB', 2, 2], ['just', '', '', 0, 4], ['robbers', 'robber', 'NOUN', 1, 5]]]
 
 [[['lanterns', 'lantern', 'NOUN', 1, 1], ['hang', 'hang', 'VERB', 1,2], ['from', '', '', 0,3], ['the', '', '', 0,4], ['ceiling', 'ceiling', 'NOUN', 1, 5]]]
 
-[[['I', '', '', 0,1], ['should', '', '', 0,2], ['not', 'not', '', 1, 3], ['play', 'play', 'VERB', 1, 5], ['volleyball', 'volleyball', 'NOUN', 1, 4]]]
+[[['I', '', '', 0,1], ['should', '', '', 0,2], ['not', '', '', 0, 3], ['play', 'play', 'VERB', 1, 5], ['volleyball', 'volleyball', 'NOUN', 1, 4]]]
 
-[[['the', '', '', 0,1], ['government', 'government', 'NOUN', 1, 4], ['official', 'official', 'ADJ', 1, 2], ['is', 'be', 'VERB', 2, 5], ['already', 'already', '', 1, 6], ['there', 'there', '', 1, 7]]]
+[[['the', '', '', 0,1], ['government', 'government', 'NOUN', 1, 4], ['official', 'official', 'ADJ', 1, 2], ['is', 'be', 'VERB', 2, 5], ['already', '', '', 0, 6], ['there', '', '', 0, 7]]]
 
 [[['a', '', '', 0,1], ['memory', 'memory', 'NOUN', 1, 2], ['he', '', '', 0,4], ['owes', 'owe', 'VERB', 2, 6], ['to', '', '', 0,0], ['her', '', '', 0,5]]]
 
-[[['he', '', '', 0, 1], ['deserted', 'abandon', 'VERB', 5, 2, 4], ['her', '', '', 0,3]]]
+[[['he', '', '', 0, 1], ['deserted', 'desert', 'VERB', 3, 2, 4], ['her', '', '', 0,3]]]
 
-[[['they', '', '', 0,1], ['walked', 'walk', 'VERB', 1, 2], ['through', 'through', '', 2, 3], ['the', '', '', 0, 4], ['desert', 'desert', 'NOUN', 1, 5]]]
+[[['they', '', '', 0,1], ['walked', 'walk', 'VERB', 1, 2], ['through', '', '', 0, 3], ['the', '', '', 0, 4], ['desert', 'desert', 'NOUN', 1, 5]]]
 
 [[['this', '', '', 0,1], ['road', 'road', 'NOUN', 1, 2], ['leads', 'lead', 'VERB', 1, 3], ['to', '', '', 0, 4], ['the', '', '', 0,4], ['lake', 'lake', 'NOUN', 1, 5]]]
 
-[[['1', '', '', 0,1], ['front', 'front', 'NOUN', 1, 1], ['1', '', '', 0,1], ['the', '', '', 0,2], ['king', 'king', 'NOUN', 1, 3], ['everyone', '', '', 0, 6], ['must', 'must', '', 1, 4], ['bow', 'bow', 'VERB', 1, 7]]]
+[[['1', '', '', 0,1], ['front', 'front', 'NOUN', 1, 1], ['1', '', '', 0,1], ['the', '', '', 0,2], ['king', 'king', 'NOUN', 1, 3], ['everyone', '', '', 0, 6], ['must', 'must', 'ADJ', 1, 4], ['bow', 'bow', 'VERB', 1, 7]]]
 
-[[['1','', '', 0,1], ['were', 'be', 'VERB', 2, 2], ['a', '', '', 0,3], ['wooden', 'wooden', 's', 1, 4], ['bow', 'bow', 'NOUN', 4, 4]]]
+[[['1','', '', 0,1], ['were', 'be', 'VERB', 2, 2], ['a', '', '', 0,3], ['wooden', 'wooden', 'ADJ', 1, 4], ['bow', 'bow', 'NOUN', 4, 4]]]
 
-[[['please', 'please', '', 1, 1], ['stand', 'stand', 'VERB', 1, 5], ['1', '', '', 0,2], ['1', '', '', 0,3], ['row', 'row', 'NOUN', 1, 4]]]
+[[['please', '', '', 0, 1], ['stand', 'stand', 'VERB', 1, 5], ['1', '', '', 0,2], ['1', '', '', 0,3], ['row', 'row', 'NOUN', 1, 4]]]
 
 [[['my', '', '', 0,1], ['neighbours', 'neighbour', 'NOUN', 1, 2], ['had', 'have', 'VERB', 1, 3], ['1', '', '', 0,0], ['row', 'quarrel', 'NOUN', 1, 5], ['yesterday', 'yesterday', 'NOUN', 1, 4]]]
 
-[[['she', '', '', 0,1], ['tears', 'tear', 'VERB', 3, 2], ['the', '', '', 0,3], ['letter', 'letter', 'NOUN', 1, 4], ['apart', 'apart', '', 6, 5]]]
+[[['she', '', '', 0,1], ['tears', 'tear', 'VERB', 3, 2], ['the', '', '', 0,3], ['letter', 'letter', 'NOUN', 1, 4], ['apart', '', '', 0, 5]]]
 
 [[['she', '', '', 0,1], ['has', 'have', 'VERB', 1, 2], ['tears', 'tear', 'NOUN', 1, 3], ['1', '', '', 0,4], ['1', '', '', 0,5], ['eyes', 'eye', 'NOUN', 1, 6]]]
 

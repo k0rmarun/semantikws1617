@@ -25,7 +25,7 @@ Das ILI besteht aus einzelnen Einträgen ("iliRecords") von denen jeder ein SymS
 
 Zum Training verwenden wir den parallelen Korpus "EUBookShop" der OPUS Kollektion.
 Dieser Korpus umfasst ca. 10 Millionen Sätze die sowohl im Deutschen als auch im Englischen vorliegen.
-Jedoch ist dieser Korpus nur Satz-Aliniert, so dass wir ihn in einem Vorverarbeitungsschritt mittels GIZA++ Wort-Aliniert haben.
+Jedoch ist dieser Korpus nur Satz-Aliniert, so dass wir ihn in einem Vorverarbeitungsschritt mittels GIZA++ (bzw. der auf moderne Systeme ausgelegten Version mgiza) Wort-Aliniert haben.
 
 Weiterhin haben wir einen parallelen Korpus von Hand annotiert und umfasst 75 Sätze. Dieser Korpus wird als weiterhin als "Test-Korpus" bezeichnet und dient vorrangig zur (Qualitäts-)Auswertung der Embeddings aus Task 2.
 
@@ -55,6 +55,42 @@ Wir haben uns für diese Vorgehensweise entschieden, weil wir Embeddings erzeuge
 
 # Evaluation
 
+## Einschränkungen
+In vielen Texten des EUBookShop weichen die Übersetzer mit steigender Textlänge weiter von dem Englischen Original-Text ab, bis hin zu komplett unterschiedlichen Paragraphen und Kapiteln.
+
+Eine weitere Fehlerquelle ist die Wort-Alinierung mittels GIZA. Hier können mehrere verschiedene Fehler entstehen:
+1. GIZA trennt Wörter immer an Leerzeichen, so dass häufig mehrteilige Wörter nicht korrekt zugeordnet werden.
+2. GIZA kommt nicht mit Satzzeichen zurecht, so dass diese in einem Vorverarbeitungsschritt entfernt werden müssen. Dies macht sich besonders bei Wörter mit Apostrophen (z.B. in don't) bemerkbar
+3. Allgemeine Fehler bei der Alinierung
+
 # Resultate
 
 # Erkentnisse
+
+# References
+- Kaveh Taghipour; Hwee Tou Ng (2015): One Million Sense-Tagged Instances for Word Sense Disambiguation and Induction, CoNLL 2015.
+- Hong Jin Kang; Tao Chen; Muthu Kumar Chandrasekaran; Min-Yen Kan A (2016): Comparison of Word Embeddings for English and Cross-Lingual Chinese Word Sense Disambiguation, BEA.
+- Roberto Navigli. 2009. Word sense disambiguation: A survey. ACM Comput. Surv. 41, 2, Article 10 (February 2009), 69 pages. DOI=http://dx.doi.org/10.1145/1459352.1459355
+- Maarten van Gompel: Proceedings of the 5th International Workshop on Semantic Evaluation, ACL 2010, pages 238–241, UvT-WSD1: a Cross-Lingual Word Sense Disambiguation system
+- Els Lefever; Véronique Hoste: Second Joint Conference on Lexical and Computational Semantics (*SEM), Volume 2: Seventh International Workshop on Semantic
+Evaluation (SemEval 2013), pages 158–166, Atlanta, Georgia, June 14-15, 2013: SemEval-2013 Task 10: Cross-lingual Word Sense Disambiguation
+- Bahareh Sarrafzadeh, Nikolay Yakovets, Nick Cercone, and Aijun An: Cross-Lingual Word Sense Disambiguation for Languages with Scarce Resources, 2014
+- Minh-Thang Luong, Hieu Pham, Christopher D. Manning:Bilingual Word Representations with Monolingual Quality in Mind
+- ella.cl.uni-heidelberg.de
+- GIZA-pp / mgiza (https://github.com/moses-smt/mgiza)
+- Vorlesungsfolien
+# Aufgabenverteilung
+
+Verena Mengen:
+- Handannotierter Korpus
+
+M. Moslemi:
+- Handannotierter Korpus
+
+Julian Rodriquez:
+- WordNet / GermaNet / ILI
+- Disambiguation via ILI
+
+Niels Bernlöhr:
+- Wort-Alinierung mittels GIZA
+- Word2Vec / SkipGram

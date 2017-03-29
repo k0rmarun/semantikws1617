@@ -24,15 +24,15 @@
 
 [[['the', '', '', 0,1], ['participants', 'participant', 'NOUN', 1, 2], ['start', 'start', 'VERB', 3, 3], ['to', '', '', 0, 7], ['file', 'file', 'VERB', 3, 7], ['out', '', '', 0, 7], ['of', '', '', 0, 4], ['the', '', '', 0, 5], ['church', 'church', 'NOUN', 1, 6]]]
 
-[[['the', '', '', 0, 1], ['two', '', '', 1, 2], ['men', 'man', 'NOUN', 1, 3], ['are', 'be', 'VERB', 2, 4], ['friends', 'friend', 'NOUN', 1, 5]]]
+[[['the', '', '', 0, 1], ['two', '', '', 0, 2], ['men', 'man', 'NOUN', 1, 3], ['are', 'be', 'VERB', 2, 4], ['friends', 'friend', 'NOUN', 1, 5]]]
 
-[[['he', '', '', 0, 1], ['grew', 'grow', 'VERB', 2, 2], ['up', 'up', '', 1, 4], ['poor', 'poor', 'ADJ', 2, 3]]]
+[[['he', '', '', 0, 1], ['grew', 'grow', 'VERB', 2, 2], ['up', 'up', '', 0, 4], ['poor', 'poor', 'ADJ', 2, 3]]]
 
 [[['a', '', '', 0, 1], ['man', 'man', 'NOUN', 1, 2], ['could', '', '', 0, 3],['rise', 'rise', 'NOUN', 1, 7], ['in', '', '', 0, 4], ['the', '', '', 0, 5], ['army', 'army', 'NOUN', 1, 6]]]
 
 [[['he', '', '', 0,1], ['liked', 'like', 'VERB', 1, 2] ,['the', '', '', 0, 3], ['brutal', 'brutal', 'ADJ', 1, 4], ['training', 'training', 'NOUN', 1, 5]]]
 
-[[['he', '', '', 0, 1], ['listens', 'listen', 'VERB', 1, 2], ['to','', '', 0, 0], ['the','', '', 0, 3], ['footsteps', 'footstep', 'NOUN', 2, 4], ['coming', 'come', 'VERB', 1, 7,8], ['up', '', '', 1, 7,8], ['the', '', '', 0, 5], ['stairs', 'stairs', 'NOUN', 1, 6]]]
+[[['he', '', '', 0, 1], ['listens', 'listen', 'VERB', 1, 2], ['to','', '', 0, 0], ['the','', '', 0, 3], ['footsteps', 'footstep', 'NOUN', 2, 4], ['coming', 'come', 'VERB', 1, 7,8], ['up', '', '', 0, 7,8], ['the', '', '', 0, 5], ['stairs', 'stair', 'NOUN', 1, 6]]]
 
 [[['he', '', '', 0, 1], ['had', 'have', 'VERB', 1, 2], ['a', '', '', 0, 3], ['burger', 'burger', 'NOUN', 1, 4], ['and', '', '', 0, 5], ['fries', 'fries', 'NOUN', 1, 6]]]
 
@@ -56,18 +56,18 @@
 
 [[['this', '', '', 0,1], ['road', 'road', 'NOUN', 1, 2], ['leads', 'lead', 'VERB', 1, 3], ['to', '', '', 0, 4], ['the', '', '', 0,4], ['lake', 'lake', 'NOUN', 1, 5]]]
 
-[[['1', '', '', 0,1], ['front', 'front', 'NOUN', 1, 1], ['1', '', '', 0,1], ['the', '', '', 0,2], ['king', 'king', 'NOUN', 1, 3], ['everyone', '', '', 0, 6], ['must', 'must', 'ADJ', 1, 4], ['bow', 'bow', 'VERB', 1, 7]]]
+[[['in', '', '', 0,1], ['front', 'front', 'NOUN', 1, 1], ['of', '', '', 0,1], ['the', '', '', 0,2], ['king', 'king', 'NOUN', 1, 3], ['everyone', '', '', 0, 6], ['must', 'must', 'ADJ', 1, 4], ['bow', 'bow', 'VERB', 1, 7]]]
 
-[[['1','', '', 0,1], ['were', 'be', 'VERB', 2, 2], ['a', '', '', 0,3], ['wooden', 'wooden', 'ADJ', 1, 4], ['bow', 'bow', 'NOUN', 4, 4]]]
+[[['it','', '', 0,1], ['were', 'be', 'VERB', 2, 2], ['a', '', '', 0,3], ['wooden', 'wooden', 'ADJ', 1, 4], ['bow', 'bow', 'NOUN', 4, 4]]]
 
-[[['please', '', '', 0, 1], ['stand', 'stand', 'VERB', 1, 5], ['1', '', '', 0,2], ['1', '', '', 0,3], ['row', 'row', 'NOUN', 1, 4]]]
+[[['please', '', '', 0, 1], ['stand', 'stand', 'VERB', 1, 5], ['in', '', '', 0,2], ['a', '', '', 0,3], ['row', 'row', 'NOUN', 1, 4]]]
 
-[[['my', '', '', 0,1], ['neighbours', 'neighbour', 'NOUN', 1, 2], ['had', 'have', 'VERB', 1, 3], ['1', '', '', 0,0], ['row', 'quarrel', 'NOUN', 1, 5], ['yesterday', 'yesterday', 'NOUN', 1, 4]]]
+[[['my', '', '', 0,1], ['neighbours', 'neighbour', 'NOUN', 1, 2], ['had', 'have', 'VERB', 1, 3], ['a', '', '', 0,0], ['row', 'quarrel', 'NOUN', 1, 5], ['yesterday', 'yesterday', 'NOUN', 1, 4]]]
 
 [[['she', '', '', 0,1], ['tears', 'tear', 'VERB', 3, 2], ['the', '', '', 0,3], ['letter', 'letter', 'NOUN', 1, 4], ['apart', '', '', 0, 5]]]
 
-[[['she', '', '', 0,1], ['has', 'have', 'VERB', 1, 2], ['tears', 'tear', 'NOUN', 1, 3], ['1', '', '', 0,4], ['1', '', '', 0,5], ['eyes', 'eye', 'NOUN', 1, 6]]]
+[[['she', '', '', 0,1], ['has', 'have', 'VERB', 1, 2], ['tears', 'tear', 'NOUN', 1, 3], ['in', '', '', 0,4], ['her', '', '', 0,5], ['eyes', 'eye', 'NOUN', 1, 6]]]
 
-[[['the', '', '', 0,1], ['clockmaker', 'clocksmith', 'NOUN', 1, 2], ['winds', 'wind', 'VERB', 3, 3,6], ['the', '', '', 0,4], ['clock', 'clock', 'NOUN', 1, 5]]]
+[[['the', '', '', 0,1], ['clockmaker', 'clockmaker', 'NOUN', 1, 2], ['winds', 'wind', 'VERB', 3, 3,6], ['the', '', '', 0,4], ['clock', 'clock', 'NOUN', 1, 5]]]
 
 [[['the', '', '', 0,1], ['wind', 'wind', 'NOUN', 1, 2], ['was', 'be', 'VERB', 2, 3], ['cold', 'cold', 'ADJ', 1, 4]]]

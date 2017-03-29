@@ -17,7 +17,7 @@ class SkipGramTF:
     Implementation of the Skip-Gram algorithm using TensorFlow
     """
     num_steps = 10001  # Number of learning iterations. Should be much larger (10-1000) than len(text)/batch_size
-    batch_size = 20  # Number of samples to learn at a time. The higher the faster
+    batch_size = 128  # Number of samples to learn at a time. The higher the faster
     embedding_size = 300  # Dimension of the embedding vector.
     num_sampled = 64  # Number of negative examples to sample.
 
@@ -165,7 +165,7 @@ class SkipGramTF:
         :type step: int
         """
         # Display neural network loss every 2k steps
-        if self.showLoss and step % 2000 == 0:
+        if self.showLoss and step % 10000 == 0:
             if step > 0:
                 # The average loss is an estimate of the loss over the last 2000 minibatches.
                 print('Average loss at step %d: %f' % (step, self.average_loss / 2000))
@@ -206,6 +206,8 @@ class SkipGram:
                 else:
                     typ, lemma, sid = word
                 self.__corpus_size += 1
+                if self.__corpus_size % 1000000 == 0:
+                    print(self.__corpus_size)
                 if lemma not in self.__lemma2sense:
                     self.__lemma2sense[lemma] = []
                 if word not in self.__lemma2sense[lemma]:
@@ -305,7 +307,7 @@ class SkipGram:
             context_vectors = np.zeros(self.__sg.embedding_size)
             context_cnt = 0
             for word in context:
-                if word not in context:
+                if word not in self.__lemma2sense:
                     continue
                 senses = self.__lemma2sense[word]
                 for sense in senses:
@@ -316,6 +318,7 @@ class SkipGram:
             context_vectors /= context_cnt  # calculate mean
 
             if choice not in self.__lemma2sense:
+                print("unknown")
                 return None
             choices = self.__lemma2sense[choice]
 
@@ -324,9 +327,11 @@ class SkipGram:
                 choice_ = choices[i]
                 choice_vector = self.__sg.word2vec(self.__sensedict[choice_])
                 cosines[i] = 1 - cosine(context_vectors, choice_vector)
-            return choices[cosines.argmax()]
-        except KeyError:
-            return None
+            return choices[cosines.argmax()], choices, len(choices)
+        except KeyError as e:
+            print("keyerror")
+            raise e
+            #return None
 
 
 if __name__ == "__main__":

@@ -34,6 +34,9 @@ def map_with_ili():
             sense = ''
             tag = ""
 
+            if lemma in ".,-;:_#'+*~!?()[]{}":
+                continue
+
             if blank[1][:2] in tags.keys():
                 tag = tags[blank[1][:2]]
                 word_g = []
@@ -43,7 +46,7 @@ def map_with_ili():
                 word_g = ' '.join(word_g)
                 if len(word_g) > 0:
                     sense_key = (lemma, parse_g(word_g))
-                    sense = mapping[tag].get(sense_key, '')
+                    sense = mapping[tag].get(sense_key, -1)
 
             sentence.append((blank[0], tag, lemma, sense))
         return tuple(sentence)

@@ -327,7 +327,7 @@ class SkipGram:
                 choice_ = choices[i]
                 choice_vector = self.__sg.word2vec(self.__sensedict[choice_])
                 cosines[i] = 1 - cosine(context_vectors, choice_vector)
-            return choices[cosines.argmax()], choices, len(choices)
+            return choices[cosines.argmax()]#, choices, len(choices)
         except KeyError as e:
             print("keyerror")
             raise e

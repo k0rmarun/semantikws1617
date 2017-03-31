@@ -6,7 +6,7 @@ def load():
         lidx = 0
         while True:
             lidx += 1
-            if lidx % 1000000 == 0:
+            if lidx > 5000000:
                 break
             line = f.readline()
             if not line:

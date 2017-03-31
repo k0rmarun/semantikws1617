@@ -5,6 +5,7 @@ from tensorflow.python.client import device_lib
 from scipy.spatial.distance import cosine
 import json
 from memory_profiler import profile
+import pickle
 
 
 __licence__ = "GPLv3"
@@ -17,7 +18,7 @@ class SkipGramTF:
     Implementation of the Skip-Gram algorithm using TensorFlow
     """
     num_steps = 10001  # Number of learning iterations. Should be much larger (10-1000) than len(text)/batch_size
-    batch_size = 128  # Number of samples to learn at a time. The higher the faster
+    batch_size = 2048  # Number of samples to learn at a time. The higher the faster
     embedding_size = 300  # Dimension of the embedding vector.
     num_sampled = 64  # Number of negative examples to sample.
 
@@ -32,8 +33,8 @@ class SkipGramTF:
         local_devices = device_lib.list_local_devices()
         local_devices = [x.name for x in local_devices if x.device_type == 'GPU']
 
-        #if len(local_devices) > 0:
-            #return local_devices[0]
+        if len(local_devices) > 0:
+            return local_devices[0]
         return "/cpu:0"
 
     def __init__(self, vocabulary_size: int, corpus_size: int = None, load: bool = False):
@@ -219,7 +220,7 @@ class SkipGram:
                     typ, lemma, sid = word
 
                 # Ignore all broken words
-                if self.__lemmacount[lemma] < 3:
+                if self.__lemmacount[lemma] < 100:
                     continue
                 self.__corpus_size += 1
                 if self.__corpus_size % 1000000 == 0:
@@ -295,17 +296,17 @@ class SkipGram:
             self.__sg.train(self.__batch)
 
     def save(self):
-        with open("lemma2sense.json") as f:
-            json.dump(self.__lemma2sense, f)
-        with open("sensedict.json") as f:
-            json.dump(self.__sensedict, f)
+        with open("lemma2sense.pickle", "wb") as f:
+            f.write(pickle.dumps(self.__lemma2sense))
+        with open("sensedict.pickle", "wb") as f:
+            f.write(pickle.dumps(self.__sensedict))
         self.__sg.save()
 
     def load(self):
-        with open("lemma2sense.json") as f:
-            self.__lemma2sense = json.load(f)
-        with open("sensedict.json") as f:
-            self.__sensedict = json.load(f)
+        with open("lemma2sense.pickle", "rb") as f:
+            self.__lemma2sense = pickle.load(f)
+        with open("sensedict.pickle", "rb") as f:
+            self.__sensedict = pickle.load(f)
         self.__inv_sensedict = dict(zip(self.__sensedict.values(), self.__sensedict.keys()))
         self.__sg = SkipGramTF(self.__corpus_size, load=True)
 
@@ -329,14 +330,16 @@ class SkipGram:
                     continue
                 senses = self.__lemma2sense[word]
                 for sense in senses:
-                    context_vectors += self.__sg.word2vec(
+                    tmp = self.__sg.word2vec(
                         self.__sensedict[sense]
                     )
+                    if np.any(np.isnan(tmp)):
+                        print("fuck")
+                    context_vectors += tmp
                     context_cnt += 1
             context_vectors /= context_cnt  # calculate mean
 
             if choice not in self.__lemma2sense:
-                print("unknown")
                 return None
             choices = self.__lemma2sense[choice]
 
@@ -344,8 +347,10 @@ class SkipGram:
             for i in range(len(choices)):
                 choice_ = choices[i]
                 choice_vector = self.__sg.word2vec(self.__sensedict[choice_])
-                cosines[i] = 1 - cosine(context_vectors, choice_vector)
+                cosines[i] = cosine(context_vectors, choice_vector)
             return choices[cosines.argmax()]#, choices, len(choices)
+        except ValueError as e:
+            print(e)
         except KeyError as e:
             print("keyerror")
             raise e

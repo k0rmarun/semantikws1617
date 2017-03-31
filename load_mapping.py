@@ -1,18 +1,31 @@
 import json
-
+from cleaner import cleaner
+from ili_mapping import db_to_wordnet
 
 def load():
-    with open("mapping.txt") as f:
-        lidx = 0
-        while True:
-            lidx += 1
-            if lidx > 5000000:
-                break
-            line = f.readline()
-            if not line:
-                return
-            yield json.loads(line)
+    _, polysemous = db_to_wordnet("sqlite-30.db")
 
+    num_lines = 10000
+    lidx = 0
+    with open('mapping-inv.txt') as f:
+        while True:
+            lidx +=1
+            if lidx > num_lines:
+                break
+            sentence_ = json.loads(f.readline())
+            sentence = []
+            for word in sentence_:
+                if word[3] not in ['', -1]:
+                    if (word[2], word[1]) in polysemous:
+                        sentence.append(word)
+                    else:
+                        sentence.append([word[1], word[2], '', -1])
+                else:
+                    sentence.append(word)
+            yield sentence
+
+    #for sentence in cleaner(num_lines):
+        #yield sentence
 
 def main():
     for sentence in load():

@@ -18,9 +18,9 @@ class SkipGramTF:
     Implementation of the Skip-Gram algorithm using TensorFlow
     """
     num_steps = 10001  # Number of learning iterations. Should be much larger (10-1000) than len(text)/batch_size
-    batch_size = 2048  # Number of samples to learn at a time. The higher the faster
+    batch_size = 10  # Number of samples to learn at a time. The higher the faster
     embedding_size = 300  # Dimension of the embedding vector.
-    num_sampled = 64  # Number of negative examples to sample.
+    num_sampled = 5  # Number of negative examples to sample.
 
     @staticmethod
     def get_preferred_device():
@@ -220,10 +220,10 @@ class SkipGram:
                     typ, lemma, sid = word
 
                 # Ignore all broken words
-                if self.__lemmacount[lemma] < 100:
+                if self.__lemmacount[lemma] < 2:
                     continue
                 self.__corpus_size += 1
-                if self.__corpus_size % 1000000 == 0:
+                if self.__corpus_size % 10000 == 0:
                     print(self.__corpus_size)
                 if lemma not in self.__lemma2sense:
                     self.__lemma2sense[lemma] = []
@@ -344,6 +344,7 @@ class SkipGram:
             choices = self.__lemma2sense[choice]
 
             cosines = np.zeros(len(choices))
+            print("Got", len(choices), "choices for word", choice,"are", choices)
             for i in range(len(choices)):
                 choice_ = choices[i]
                 choice_vector = self.__sg.word2vec(self.__sensedict[choice_])

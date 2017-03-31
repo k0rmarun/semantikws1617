@@ -8,7 +8,7 @@ def map_with_ili():
     wordnet_path = "sqlite-30.db"
     germanet_path = "germanet-11.0/GN_V110_XML/"
 
-    mapping = create_mapping(ili_path, wordnet_path, germanet_path)
+    mapping, pe, pg = create_mapping(ili_path, wordnet_path, germanet_path)
     parser_e = treetaggerwrapper.TreeTagger(TAGLANG="en", TAGDIR="/home/niels/tree-tagger", TAGPARFILE="/home/niels/tree-tagger/english.par")
     parser_g = treetaggerwrapper.TreeTagger(TAGLANG="de", TAGDIR="/home/niels/tree-tagger", TAGPARFILE="/home/niels/tree-tagger/german.par")
 
@@ -51,4 +51,4 @@ def map_with_ili():
             sentence.append((blank[0], tag, lemma, sense))
         return tuple(sentence)
 
-    return mapping, inner
+    return mapping, inner, pe, pg

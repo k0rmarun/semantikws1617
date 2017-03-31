@@ -78,10 +78,10 @@ def create_mapping (iliPath, wordnet_path, germanet_path, lang='en'):
     print('Polysemous linked %s verbs that can be disambiguated:'%(language),len(tagDict['VERB']))
     print('Polysemous linked %s adjectives that can be disambiguated:'%(language),len(tagDict['ADJ']))
     tagDict = {wordtype:{(english,german):tagDict[wordtype][english,g_set] for english, g_set in tagDict[wordtype] for german in g_set} for wordtype in tagDict}
-    return dict(tagDict)
+    return dict(tagDict), polysemous_e, polysemous_g
 
 if __name__ == '__main__':
-    dictio = create_mapping('interLingualIndex_DE-EN_GN110.xml', 'sqlite-30.db', 'germanet-11.0/GN_V110_XML/')
+    dictio,_,_ = create_mapping('interLingualIndex_DE-EN_GN110.xml', 'sqlite-30.db', 'germanet-11.0/GN_V110_XML/')
     print('Entries after expanding german orthography:',sum([len(dictio[k1]) for k1 in dictio]))
-    dictio = create_mapping('interLingualIndex_DE-EN_GN110.xml', 'sqlite-30.db', 'germanet-11.0/GN_V110_XML/','de')
+    dictio,_,_ = create_mapping('interLingualIndex_DE-EN_GN110.xml', 'sqlite-30.db', 'germanet-11.0/GN_V110_XML/','de')
     print('Entries after expanding german orthography:',sum([len(dictio[k1]) for k1 in dictio]))

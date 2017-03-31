@@ -205,6 +205,22 @@ class SkipGram:
                     typ, lemma, sid = "Unk", word, -1
                 else:
                     typ, lemma, sid = word
+
+                if lemma not in self.__lemmacount:
+                    self.__lemmacount[lemma] = 0
+                self.__lemmacount[lemma] += 1
+
+        it = self.__corpus()
+        for sentence in it:
+            for word in sentence:
+                if isinstance(word, str):
+                    typ, lemma, sid = "Unk", word, -1
+                else:
+                    typ, lemma, sid = word
+
+                # Ignore all broken words
+                if self.__lemmacount[lemma] < 3:
+                    continue
                 self.__corpus_size += 1
                 if self.__corpus_size % 1000000 == 0:
                     print(self.__corpus_size)
@@ -212,6 +228,7 @@ class SkipGram:
                     self.__lemma2sense[lemma] = []
                 if word not in self.__lemma2sense[lemma]:
                     self.__lemma2sense[lemma].append(word)
+
                 if word not in self.__sensedict:
                     self.__sensedict[word] = len(self.__sensedict)
         self.__inv_sensedict = dict(zip(self.__sensedict.values(), self.__sensedict.keys()))
@@ -268,6 +285,7 @@ class SkipGram:
         self.__lemma2sense = {}
         self.__sensedict = {}
         self.__inv_sensedict = {}
+        self.__lemmacount = {}
         self.__corpus_size = 0
         if load:
             self.load()
